@@ -20,22 +20,6 @@ public class HechizosServlet extends HttpServlet {
         HechizoDao hechi = new HechizoDao();
 
         switch (accion){
-            case ("principal"):
-                view = request.getRequestDispatcher("/index.jps");
-                view.forward(request,response);
-                break;
-            case ("heroes"):
-                view = request.getRequestDispatcher("/menuheroe.jps");
-                view.forward(request,response);
-                break;
-            case ("catalogo"):
-                view = request.getRequestDispatcher("/catalogoobjetos.jps");
-                view.forward(request,response);
-                break;
-            case ("enemigos"):
-                view = request.getRequestDispatcher("/menuenemigos.jps");
-                view.forward(request,response);
-                break;
             case ("borrar"):
                 String spell = request.getParameter("id");
                 try {
@@ -46,7 +30,7 @@ public class HechizosServlet extends HttpServlet {
                 }
                 break;
             case ("añadir"):
-                view = request.getRequestDispatcher("/añadirhechizos.jps");
+                view = request.getRequestDispatcher("/añadirhechizos.jsp");
                 view.forward(request,response);
                 break;
             case ("listar"):
