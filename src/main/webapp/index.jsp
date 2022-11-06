@@ -59,10 +59,10 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html" class="active">Principal</a></li>
+                        <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Principal</a></li>
                         <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
-                        <li><a href="enemigos.html">Enemigos</a></li>
-                        <li><a href="hechizos.html.html">Hechizos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
                     <a class='menu-trigger'>
