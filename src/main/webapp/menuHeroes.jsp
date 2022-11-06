@@ -27,7 +27,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Liberty NFT Marketplace - Explore Listing Page</title>
+    <title>Final Fantasy: Heroes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -122,7 +122,7 @@
                     </form>
                     <div class="row">
                     <div class="col-lg-2">
-                            <button class="main-button" style="background-color:#7453fc; border-color:white;margin-left: 10px;margin-top: 0.7rem;width: 120px; color: white" >Añadir héroe</button>
+                            <button class="main-button" style="background-color:#7453fc; border-color:white;margin-left: 10px;margin-top: 0.7rem;width: 120px; color: white" href="<%=request.getContextPath()%>/HeroesServlet?accion=añadirheroe">Añadir héroe</button>
                     </div>
                 </div>
                 </div>
@@ -140,7 +140,6 @@
                                 <th>Ataque</th>
                                 <th>Pareja</th>
                                 <th>Exp. Inicial</th>
-                                <th>Experiencia</th>
                             </tr>
 
                             <tbody>
