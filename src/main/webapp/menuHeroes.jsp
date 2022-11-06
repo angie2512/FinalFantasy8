@@ -70,17 +70,17 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="<%=request.getContextPath()%>/IndexServlet" class="logo">
                         <img src="assets/images/finalfan.jpg" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html" >Principal</a></li>
-                        <li><a href="heroes.html" class="active">Héroes</a></li>
-                        <li><a href="enemigos.html">Enemigos</a></li>
-                        <li><a href="hechizos.html">Hechizos</a></li>
-                        <li><a href="catalogo.html">Catálogo de objetos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/IndexServlet">Principal</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HeroesServlet" class="active">Héroes</a></li>
+                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -110,19 +110,21 @@
                     <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
                     <div class="col-lg-4">
                         <fieldset>
-                            <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 1070px;margin-left: 0rem;margin-top: 0.7rem">
+                            <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 1140px;margin-top: 0.7rem">
                         </fieldset>
-                    </div>
-
-                    <div class="col-lg-2">
+                    </div><div class="col-lg-2">
+                        <div style="margin-top: 1px">
                         <fieldset>
-                            <button class="main-button" type="submit" style="margin-left: 830px;margin-top: 0.7rem;width: 84px" >Buscar</button>
+                            <button class="main-button" type="submit" style="margin-left: 1170px;width: 120px;bottom: 46px" >Buscar</button>
                         </fieldset>
+                        </div>
                     </div>
                     </form>
+                    <div class="row">
                     <div class="col-lg-2">
-                            <button class="main-button" style="margin-left: 800px;margin-top: 0.7rem;width: 120px" >Añadir héroe</button>
+                            <button class="main-button" style="background-color:#7453fc; border-color:white;margin-left: 10px;margin-top: 0.7rem;width: 120px; color: white" >Añadir héroe</button>
                     </div>
+                </div>
                 </div>
                     <div class="container">
                         <table class="table" style="color: white;width: 1300px; margin-top: 100px">
@@ -137,7 +139,8 @@
                                 <th>Nivel Inicial</th>
                                 <th>Ataque</th>
                                 <th>Pareja</th>
-                                <th>Ptos.Experiencia Inicial</th>
+                                <th>Exp. Inicial</th>
+                                <th>Experiencia</th>
                             </tr>
 
                             <tbody>
@@ -150,8 +153,13 @@
                                 </td>
                                 <td><%=heroes.getEdad()%>
                                 </td>
-                                <td><%=heroes.getGenero()%>
-                                </td>
+                                <% if(heroes.getGenero().equals("F")) {%>
+                                <td>Femenino</td>
+                                <%} else if (heroes.getGenero().equals("M")){%>
+                                <td>Masculino</td>
+                                <%} else{ %>
+                                <td>Otro</td>
+                                <%}%>
                                 <td><%=heroes.getClase()%>
                                 </td>
                                 <td><%=heroes.getNivel()%>
@@ -164,7 +172,10 @@
                                 <%} else {%>
                                    <td>--Sin pareja--</td>
                                 <%}%>
-                                <td><%=heroes.getExperienciaInicial()%></td>
+                                <td>
+                                    <%=heroes.getExperienciaInicial()%>
+                                </td>
+
                             </tr>
                             <% i++;
                             }
