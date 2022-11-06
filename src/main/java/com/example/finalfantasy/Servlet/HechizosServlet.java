@@ -1,6 +1,7 @@
 package com.example.finalfantasy.Servlet;
 
 import com.example.finalfantasy.Bean.Hechizos;
+import com.example.finalfantasy.Bean.Objetos;
 import com.example.finalfantasy.Daos.HechizoDao;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -25,6 +26,15 @@ public class HechizosServlet extends HttpServlet {
                 try {
                     int spelli = Integer.parseInt(spell);
                     hechi.eliminarHechizo(spelli);
+                    ArrayList<Hechizos> listaHechizos = null;
+                    try {
+                        listaHechizos = hechi.listarHechizos();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    request.setAttribute("listaHechizos",listaHechizos);
+                    view = request.getRequestDispatcher("/menuhechizos.jsp");
+                    view.forward(request,response);
                 }catch (NumberFormatException e){
                     response.sendRedirect(request.getContextPath()+ "/HechizosServlet");
                 }
