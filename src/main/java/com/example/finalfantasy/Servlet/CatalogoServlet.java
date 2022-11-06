@@ -59,9 +59,10 @@ public class CatalogoServlet extends HttpServlet {
                 String nombre = request.getParameter("nombreobjeto");
                 String peso = request.getParameter("pesoobjeto");
                 String efecto = request.getParameter("efecto");
-                boolean usado = true;
+                boolean usado = false;
                 float weight = Float.parseFloat(peso);
                 objeto1.agregarObjeto(nombre,efecto, weight,usado);
+                response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 break;
 
         }

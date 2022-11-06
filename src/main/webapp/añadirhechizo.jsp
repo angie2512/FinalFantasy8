@@ -93,240 +93,69 @@
                     <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <form id="search-form" name="gs" method="submit" role="search" action="#">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <fieldset>
-                                <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un hechizo..." autocomplete="on" required style="width: 532px; margin-left: 2rem; margin-top: 0.7rem">
-                            </fieldset>
+            <div class="page-content fade-in-up">
+                <div class="col-md-6" style="margin: 0 auto">
+                    <div class="ibox" style="align-content: center">
+                        <div class="ibox-head">
+                            <div class="ibox-title">Datos de Hechizo</div>
                         </div>
-                        <div class="col-lg-2">
-                            <fieldset>
-                                <button class="main-button" style="margin-left: 20rem; margin-top: 0.7rem" >Buscar</button>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-2">
-                            <fieldset>
-                                <button class="main-button" style="margin-left: 20rem; margin-top: 0.7rem" >Añadir hechizo</button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje1.jpg" alt="" style="border-radius: 20px;">
-                            <h4>Mold</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
+                        <div class="ibox-body">
+                            <form method="post" action="<%=request.getContextPath()%>/HechizosServlet?accion=añadir">
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombrehechizo">
+                                            <label for="floatingInputGrid1">Nombre del Hechizo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="floatingSelectGrid1" name="elementohechizo">
+                                                <option selected>Elemento</option>
+                                                <option value="1">Fuego</option>
+                                                <option value="2">Tierrez</option>
+                                                <option value="3">Agua</option>
+                                                <option value="4">Viento</option>
+                                                <option value="5">Void</option>
+                                            </select>
+                                            <label for="floatingSelectGrid1">Elemento</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Potencia" name="potenciahechizo">
+                                            <label for="floatingInputGrid3">Potencia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Precision" name="precisionhechizo">
+                                            <label for="floatingInputGrid4">Precisión</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje2.jpg" alt="" style="border-radius: 20px;">
-                            <h4>Erde</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid5" placeholder="NivelAprendizaje" name="nivelaprendizaje">
+                                            <label for="floatingInputGrid4">Nivel de Aprendizaje</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid6" placeholder="Hechizo base" name="basehechizo">
+                                            <label for="floatingInputGrid6">Hechizo base</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
+                                <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit" >Registrar</button>
+                                    <a href="<%=request.getContextPath()%>/HechizosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                <span class="author">
-                  <img src="" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                            <img src="assets/images/personaje3.jpg" alt="" style="border-radius: 20px">
-                            <h4>Noctus</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>26th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje4.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Ravus</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>3.63 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>24th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje5.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Yuna</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>4.68 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>28th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje6.jpg" alt="" style="border-radius: 20px;margin-top: 7px">
-                            <h4>Cindy</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje7.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Karl</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="item">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="assets/images/personaje8.jpg" alt="" style="border-radius: 20px; margin-top: 7px">
-                            <h4>Ape</h4>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="line-dec"></div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span>Current Bid: <br> <strong>2.64 ETH</strong></span>
-                                </div>
-                                <div class="col-6">
-                                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="main-button">
-                                <a href="enemigos.html">View Details</a>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

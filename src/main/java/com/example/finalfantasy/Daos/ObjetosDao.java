@@ -62,7 +62,7 @@ public class ObjetosDao extends BaseDao{
 
     public void agregarObjeto(String nombre,String efecti, float peso, boolean usado) {
 
-        String sql = "insert into hechizos (Peso,NombreObjeto,Efecto,Usado)";
+        String sql = "insert into objetos (Peso,NombreObjeto,Efecto,Usado) values (?,?,?,?)";
 
         try (Connection conn1 = this.getConnection();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {

@@ -69,6 +69,7 @@ public class HechizosServlet extends HttpServlet {
                 int bas = Integer.parseInt(base);
                 int lvl = Integer.parseInt(nivela);
                 hechi1.agregarHechizo(nombre,pot,prec, lvl, bas,elel);
+                response.sendRedirect(request.getContextPath() + "/HechizosServlet");
                 break;
 
         }

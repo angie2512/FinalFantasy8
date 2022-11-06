@@ -64,7 +64,7 @@ public class HechizoDao extends  BaseDao{
 
     public void agregarHechizo(String nombre,int potencia, int accurate, int learn, int base,int elemento) {
 
-        String sql = "insert into hechizos (NombreHechizo,Potencia,Precision,NivelAprendizaje,idHechizoBase,Elementos_idElementos)";
+        String sql = "insert into hechizos (NombreHechizo,Potencia,Precision,NivelAprendizaje,idHechizoBase,Elementos_idElementos) values (?,?,?,?,?,?)";
 
         try (Connection conn1 = this.getConnection();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {
