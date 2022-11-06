@@ -103,9 +103,15 @@
                     <h2>Lista de <em> Héroes </em></h2>
                 </div>
             </div>
+        <div class="col-lg-7" style="text-align: center">
+            <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+                <fieldset>
+                    <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HeroesServlet?accion=añadirheroe">
+                        <i class="bi bi-pencil-square">Añadir Héroe</i>
+                    </a>
+                </fieldset>
+            </div>
         </div>
-        <div class="col-lg-7">
-
                 <div class="row">
                     <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
                     <div class="col-lg-4">
@@ -120,28 +126,23 @@
                         </div>
                     </div>
                     </form>
-                    <div class="row">
-                    <div class="col-lg-2">
-                            <button class="main-button" style="background-color:#7453fc; border-color:white;margin-left: 10px;margin-top: 0.7rem;width: 120px; color: white" href="<%=request.getContextPath()%>/HeroesServlet?accion=añadirheroe">Añadir héroe</button>
-                    </div>
-                </div>
                 </div>
                     <div class="container">
-                        <table class="table" style="color: white;width: 1300px; margin-top: 100px">
+                        <table class="table table-dark table-hover" style="color: white;width: 1300px; margin-top: 100px">
                             <thead>
 
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Edad</th>
-                                <th>Género</th>
-                                <th>Clase</th>
-                                <th>Nivel Inicial</th>
-                                <th>Ataque</th>
-                                <th>Pareja</th>
-                                <th>Exp. Inicial</th>
+                                <th scope="col" class="text-center">ID</th>
+                                <th scope="col" class="text-center">Nombre</th>
+                                <th scope="col" class="text-center">Edad</th>
+                                <th scope="col" class="text-center">Género</th>
+                                <th scope="col" class="text-center">Clase</th>
+                                <th scope="col" class="text-center">Nivel Inicial</th>
+                                <th scope="col" class="text-center">Ataque</th>
+                                <th scope="col" class="text-center">Pareja</th>
+                                <th scope="col" class="text-center">Exp. Inicial</th>
                             </tr>
-
+                            </thead>
                             <tbody>
                             <% int i = 1;
                                 for (Heroes heroes : listaHeroes) { %>
