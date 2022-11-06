@@ -2,10 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 
-<%
-    ArrayList<Heroes> listaHeroes = (ArrayList <Heroes>) request.getAttribute("ListaHeroes");
 
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -124,35 +121,6 @@
                                     <th>apellido</th>
                                     <th>email</th>
                                 </tr>
-
-                                <tbody>
-                                <% int i = 1;
-                                    for (Heroes heroes : listaHeroes) { %>
-                                <tr>
-                                    <td><%=i%>
-                                    </td>
-                                    <td><%=heroes.getIdHeroe()%>
-                                    </td>
-                                    <td><%=heroes.getNombre()%>
-                                    </td>
-                                    <td><%=heroes.getEdad()%>
-                                    </td>
-                                    <td><%=heroes.getGenero()%>
-                                    </td>
-                                    <td><%=heroes.getClase()%>
-                                    </td>
-                                    <td><%=heroes.getNivel()%>
-                                    </td>
-                                    <td><%=heroes.getAtaque()%>
-                                    </td>
-                                    <td><%=heroes.getPareja()%>
-                                    </td>
-                                    <td><%=heroes.getExperiencia()%>
-                                    </td>
-                                </tr>
-                                <% i++;
-                                }
-                                %>
                                 </tbody>
                                 </thead>
                             </table>
