@@ -131,17 +131,17 @@
                             <thead>
 
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Edad</th>
-                                <th>Género</th>
-                                <th>Clase</th>
-                                <th>Nivel Inicial</th>
-                                <th>Ataque</th>
-                                <th>Pareja</th>
-                                <th>Exp. Inicial</th>
+                                <th cope="col" class="text-center">ID</th>
+                                <th cope="col" class="text-center">Nombre</th>
+                                <th cope="col" class="text-center">Edad</th>
+                                <th cope="col" class="text-center">Género</th>
+                                <th cope="col" class="text-center">Clase</th>
+                                <th cope="col" class="text-center">Nivel Inicial</th>
+                                <th cope="col" class="text-center">Ataque</th>
+                                <th cope="col" class="text-center">Pareja</th>
+                                <th cope="col" class="text-center">Exp. Inicial</th>
                             </tr>
-
+                            </thead>
                             <tbody>
                             <% int i = 1;
                                 for (Heroes heroes : listaHeroes) { %>
