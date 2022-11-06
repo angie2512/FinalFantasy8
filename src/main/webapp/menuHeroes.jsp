@@ -105,8 +105,9 @@
             </div>
         </div>
         <div class="col-lg-7">
-            <form id="search-form" name="gs" method="submit" role="search" action="#">
+
                 <div class="row">
+                    <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
                     <div class="col-lg-4">
                         <fieldset>
                             <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 1070px;margin-left: 0rem;margin-top: 0.7rem">
@@ -115,18 +116,19 @@
 
                     <div class="col-lg-2">
                         <fieldset>
-                            <button class="main-button" style="margin-left: 830px;margin-top: 0.7rem;width: 84px" >Buscar</button>
+                            <button class="main-button" type="submit" style="margin-left: 830px;margin-top: 0.7rem;width: 84px" >Buscar</button>
                         </fieldset>
                     </div>
+                    </form>
                     <div class="col-lg-2">
                             <button class="main-button" style="margin-left: 800px;margin-top: 0.7rem;width: 120px" >Añadir héroe</button>
                     </div>
+                </div>
                     <div class="container">
                         <table class="table" style="color: white;width: 1300px; margin-top: 100px">
                             <thead>
 
                             <tr>
-                                <th>#</th>
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Edad</th>
@@ -134,7 +136,7 @@
                                 <th>Clase</th>
                                 <th>Nivel Inicial</th>
                                 <th>Ataque</th>
-                                <th>ID Pareja</th>
+                                <th>Pareja</th>
                                 <th>Ptos.Experiencia Inicial</th>
                             </tr>
 
@@ -142,8 +144,6 @@
                             <% int i = 1;
                                 for (Heroes heroes : listaHeroes) { %>
                             <tr>
-                                <td><%=i%>
-                                </td>
                                 <td><%=heroes.getIdHeroes()%>
                                 </td>
                                 <td><%=heroes.getNombre()%>
@@ -159,7 +159,11 @@
                                 <td>
                                     <%=heroes.getAtaque()%>
                                 </td>
-                                <td><%=heroes.getPareja().getIdHeroes()%></td>
+                                <% if(heroes.getPareja().getNombre()!=null) {%>
+                                   <td><%=heroes.getPareja().getNombre()%></td>
+                                <%} else {%>
+                                   <td>--Sin pareja--</td>
+                                <%}%>
                                 <td><%=heroes.getExperienciaInicial()%></td>
                             </tr>
                             <% i++;
@@ -171,7 +175,6 @@
 
                     </div>
                 </div>
-            </form>
         </div>
     </div>
 </div>
