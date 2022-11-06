@@ -103,11 +103,16 @@
                     <h2>Lista de <em> Héroes </em></h2>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-7" style="text-align: center">
-
-                <div class="row">
-                    <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
+            <div class="col-lg-7" style="text-align: center">
+                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+                    <fieldset>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo">
+                            <i class="bi bi-pencil-square">Añadir Hechizo</i>
+                        </a>
+                    </fieldset>
+                </div>
+            </div>
+            <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
                     <div class="col-lg-4">
                         <fieldset>
                             <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 1140px;margin-top: 0.7rem">
@@ -121,73 +126,71 @@
                     </div>
                     </form>
                     <div class="row">
-                    <div class="col-lg-2">
-                            <button class="main-button" style="background-color:#7453fc; border-color:white;margin-left: 10px;margin-top: 0.7rem;width: 120px; color: white" href="<%=request.getContextPath()%>/HeroesServlet?accion=añadirheroe">Añadir héroe</button>
-                    </div>
-                </div>
+
                 </div>
                     <div class="container">
-                        <table class="table" style="color: white;width: 1300px; margin-top: 100px">
+                        <table class="table table-dark table-hover">
                             <thead>
-
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Edad</th>
-                                <th>Género</th>
-                                <th>Clase</th>
-                                <th>Nivel Inicial</th>
-                                <th>Ataque</th>
-                                <th>Pareja</th>
-                                <th>Exp. Inicial</th>
+                                <th scope="col" class="text-center">ID</th>
+                                <th scope="col" class="text-center">Nombre</th>
+                                <th scope="col" class="text-center">Edad</th>
+                                <th scope="col" class="text-center">Género</th>
+                                <th scope="col" class="text-center">Clase</th>
+                                <th scope="col" class="text-center">Nivel Inicial</th>
+                                <th scope="col" class="text-center">Ataque</th>
+                                <th scope="col" class="text-center">Pareja</th>
+                                <th scope="col" class="text-center">Exp. Inicial</th>
                             </tr>
-
+                            </thead>
                             <tbody>
                             <% int i = 1;
                                 for (Heroes heroes : listaHeroes) { %>
                             <tr>
-                                <td><%=heroes.getIdHeroes()%>
+                                <td class="text-center" scope="row"> <%=heroes.getIdHeroes()%>
                                 </td>
-                                <td><%=heroes.getNombre()%>
+                                <td class="text-center"> <%=heroes.getNombre()%>
                                 </td>
-                                <td><%=heroes.getEdad()%>
+                                <td class="text-center"><%=heroes.getEdad()%>
                                 </td>
                                 <% if(heroes.getGenero().equals("F")) {%>
-                                <td>Femenino</td>
+                                <td class="text-center">Femenino</td>
                                 <%} else if (heroes.getGenero().equals("M")){%>
-                                <td>Masculino</td>
+                                <td class="text-center">Masculino</td>
                                 <%} else{ %>
-                                <td>Otro</td>
+                                <td class="text-center">Otro</td>
                                 <%}%>
-                                <td><%=heroes.getClase()%>
+                                <td class="text-center"><%=heroes.getClase()%>
                                 </td>
-                                <td><%=heroes.getNivel()%>
+                                <td class="text-center"><%=heroes.getNivel()%>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <%=heroes.getAtaque()%>
                                 </td>
                                 <% if(heroes.getPareja().getNombre()!=null) {%>
-                                   <td><%=heroes.getPareja().getNombre()%></td>
+                                   <td class="text-center"><%=heroes.getPareja().getNombre()%></td>
                                 <%} else {%>
-                                   <td>--Sin pareja--</td>
+                                   <td class="text-center" >--Sin pareja--</td>
                                 <%}%>
-                                <td>
+                                <td class="text-center">
                                     <%=heroes.getExperienciaInicial()%>
                                 </td>
-
+                                <td class="text-center">
+                                    <a type="button" class="btn btn-danger"
+                                       onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
+                                       href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
+                                        <i class="bi bi-trash">Borrar</i>
+                                    </a>
+                                </td>
                             </tr>
                             <% i++;
                             }
                             %>
                             </tbody>
-                            </thead>
                         </table>
-
                     </div>
-                </div>
         </div>
     </div>
-</div>
 
 
 
