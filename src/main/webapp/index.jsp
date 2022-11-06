@@ -53,7 +53,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="<%=request.getContextPath()%>/IndexServlet" class="logo">
                         <img src="assets/images/finalfan.jpg" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->

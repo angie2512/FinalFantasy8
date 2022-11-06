@@ -18,7 +18,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Liberty NFT Marketplace - Explore Listing Page</title>
+    <title>Final Fantasy: Heroe</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="<%=request.getContextPath()%>/IndexServlet" class="logo">
                         <img src="assets/images/finalfan.jpg" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
