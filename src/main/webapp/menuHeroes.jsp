@@ -27,7 +27,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Final Fantasy: Heroes</title>
+    <title>Final Fantasy: Héroes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -104,7 +104,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-7" style="text-align: center">
 
                 <div class="row">
                     <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
@@ -131,17 +131,17 @@
                             <thead>
 
                             <tr>
-                                <th cope="col" class="text-center">ID</th>
-                                <th cope="col" class="text-center">Nombre</th>
-                                <th cope="col" class="text-center">Edad</th>
-                                <th cope="col" class="text-center">Género</th>
-                                <th cope="col" class="text-center">Clase</th>
-                                <th cope="col" class="text-center">Nivel Inicial</th>
-                                <th cope="col" class="text-center">Ataque</th>
-                                <th cope="col" class="text-center">Pareja</th>
-                                <th cope="col" class="text-center">Exp. Inicial</th>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Género</th>
+                                <th>Clase</th>
+                                <th>Nivel Inicial</th>
+                                <th>Ataque</th>
+                                <th>Pareja</th>
+                                <th>Exp. Inicial</th>
                             </tr>
-                            </thead>
+
                             <tbody>
                             <% int i = 1;
                                 for (Heroes heroes : listaHeroes) { %>
