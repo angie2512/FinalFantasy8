@@ -1,10 +1,6 @@
 package com.example.finalfantasy.Daos;
 
 import com.example.finalfantasy.Bean.Heroes;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -21,16 +17,9 @@ public class HeroeDao {
         ArrayList<Heroes> listaHeroes = new ArrayList<>();
         String sql = "select * from heroes";
 
-<<<<<<< HEAD
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
-
-=======
-        try (Connection connection = DriverManager.getConnection(url, "root", "123426");
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);) {
->>>>>>> origin/master
             float exp = 0;
             int level;
             while (rs.next()) {
@@ -40,14 +29,14 @@ public class HeroeDao {
                 heroes.setNombre(rs.getString("Nombre"));
                 heroes.setEdad(rs.getInt("Edad"));
                 heroes.setGenero(rs.getString("Genero"));
-                heroes.setNivel(rs.getInt("Nivel"));
                 heroes.setAtaque(rs.getInt("Ataque"));
-<<<<<<< HEAD
-
-=======
-                heroes.setIdPareja(rs.getInt("idPareja"));
->>>>>>> origin/master
                 heroes.setClase(rs.getString("Clase"));
+                Heroes pareja = new Heroes();
+                heroes.setPareja(pareja);
+                pareja.setIdHeroes(rs.getInt("idPareja"));
+
+                heroes.setExperienciaInicial(rs.getFloat("ExperienciaInicial"));
+
                 level = rs.getInt("Nivel");
                 if (0<level && level<=15){
                     exp = (level*level*level)*(24+(level+1)/3)/50;
@@ -56,11 +45,7 @@ public class HeroeDao {
                 } else if (36<=level && level<=100) {
                     exp = (level*level*level)*(32+(level)/2)/50;
                 }
-<<<<<<< HEAD
-                heroes.setExperienciaInicial();;
-=======
-                heroes.setExperienciaInicial(exp);
->>>>>>> origin/master
+                heroes.setNivel(level);
                 listaHeroes.add(heroes);
             }
         } catch (SQLException e) {
@@ -68,6 +53,9 @@ public class HeroeDao {
         }
         return listaHeroes;
     }
+
+
+    /*
     public void añadirHeroes(String nombreh,int edadh,String generoh, int nivelh, int ataqueh,String claseh,int parejah) throws SQLException {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -79,11 +67,7 @@ public class HeroeDao {
         String sql = "insert into heroes (Edad,Nombre,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
         float exp = 0;
 
-<<<<<<< HEAD
         try (Connection conn = DriverManager.getConnection(url, "root", "root");
-=======
-        try (Connection conn = DriverManager.getConnection(url, "root", "123426");
->>>>>>> origin/master
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
             pstmt.setInt(1,edadh);
@@ -102,17 +86,11 @@ public class HeroeDao {
             }
             pstmt.setFloat(8,exp);
             pstmt.executeUpdate();
-<<<<<<< HEAD
         } catch (SQLException e) {
             e.printStackTrace();
         }
-=======
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
->>>>>>> origin/master
     }
-
+*/
 
 
 

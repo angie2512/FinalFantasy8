@@ -156,12 +156,11 @@
                                 </td>
                                 <td><%=heroes.getNivel()%>
                                 </td>
-                                <td><%=heroes.getAtaque()%>
+                                <td>
+                                    <%=heroes.getAtaque()%>
                                 </td>
-                                <td><%=heroes.getIdPareja()%>
-                                </td>
-                                <td><%=heroes.getExperienciaInicial()%>
-                                </td>
+                                <td><%=heroes.getPareja().getIdHeroes()%></td>
+                                <td><%=heroes.getExperienciaInicial()%></td>
                             </tr>
                             <% i++;
                             }

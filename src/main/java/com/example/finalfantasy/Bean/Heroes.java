@@ -1,14 +1,6 @@
 package com.example.finalfantasy.Bean;
 
-<<<<<<< HEAD
 
-public class Heroes {
-
-        private int idHeroes;
-        private String nombre;
-
-
-=======
 public class Heroes {
     private int idHeroes;
     private String nombre;
@@ -16,10 +8,19 @@ public class Heroes {
     private String genero;
     private int nivel;
     private int ataque;
-    private int idPareja;
+    private Heroes pareja;
+
+
+    public Heroes getPareja() {
+        return pareja;
+    }
+
+    public void setPareja(Heroes pareja) {
+        this.pareja = pareja;
+    }
+
     private float experienciaInicial;
     private String clase;
->>>>>>> origin/master
 
     public int getIdHeroes() {
         return idHeroes;
@@ -69,32 +70,14 @@ public class Heroes {
         this.ataque = ataque;
     }
 
-<<<<<<< HEAD
-    public Heroes getIdPareja() {
-        return idPareja;
-    }
 
-    public void setIdPareja(Heroes idPareja) {
-=======
 
-    public int getIdPareja() {
-        return idPareja;
-    }
-
-    public void setIdPareja(int idPareja) {
->>>>>>> origin/master
-        this.idPareja = idPareja;
-    }
 
     public float getExperienciaInicial() {
         return experienciaInicial;
     }
 
-<<<<<<< HEAD
-    public void setExperienciaInicial() {
-=======
     public void setExperienciaInicial(float experienciaInicial) {
->>>>>>> origin/master
         this.experienciaInicial = experienciaInicial;
     }
 
@@ -105,15 +88,4 @@ public class Heroes {
     public void setClase(String clase) {
         this.clase = clase;
     }
-<<<<<<< HEAD
-
-    private int edad;
-    private String genero;
-    private int nivel;
-    private int ataque;
-    private Heroes idPareja;
-    private float experienciaInicial;
-    private String clase;
-=======
->>>>>>> origin/master
 }
