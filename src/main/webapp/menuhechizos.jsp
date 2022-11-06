@@ -96,7 +96,7 @@
             <div class="col-lg-5">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
+                    <h2>Descubre los <em> Hechizos </em></h2>
                 </div>
             </div>
             <div class="col-lg-7" style="text-align: center;">
