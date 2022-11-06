@@ -2,15 +2,15 @@
   Created by IntelliJ IDEA.
   User: Labtel
   Date: 3/11/2022
-  Time: 16:17
+  Time: 16:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.finalfantasy.Bean.Objetos" %>
+<%@ page import="com.example.finalfantasy.Bean.Hechizos" %>
 
 <%
-    ArrayList<Objetos> listaobjetos = (ArrayList<Objetos>) request.getAttribute("listaObjetos");
+    ArrayList<Hechizos> listaHechizos = (ArrayList<Hechizos>) request.getAttribute("listaHechizos");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +23,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Final Fantasy: Catalogo Objetos</title>
+    <title>Final Fantasy: Hechizos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -95,14 +96,14 @@
             <div class="col-lg-5">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Descubre algunos de nuestros <em> Objetos </em></h2>
+                    <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
                 </div>
             </div>
             <div class="col-lg-7" style="text-align: center;">
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=añadirobjeto">
-                            <i class="bi bi-pencil-square">Añadir Objeto</i>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo">
+                            <i class="bi bi-pencil-square">Añadir Hechizo</i>
                         </a>
                     </fieldset>
                 </div>
@@ -112,31 +113,30 @@
                 <tr>
                     <th scope="col" class="text-center">Id</th>
                     <th scope="col" class="text-center">Nombre</th>
-                    <th scope="col" class="text-center">Efecto/Uso</th>
-                    <th scope="col" class="text-center">Peso</th>
-                    <th scope="col" class="text-center">Usado por un héroe</th>
-                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Elemento</th>
+                    <th scope="col" class="text-center">Potencia</th>
+                    <th scope="col" class="text-center">Precisión</th>
+                    <th scope="col" class="text-center">idHechizo Base</th>
+                    <th scope="col" class="text-center">Hechizo Base</th>
+                    <th scope="col" class="text-center">Nivel de Aprendizaje</th>
                     <th scope="col" class="text-center">Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
-                <% for(Objetos obj : listaobjetos) {%>
+                <% for(Hechizos hechi : listaHechizos) {%>
                 <tr>
-                    <th class="text-center" scope="row"><%= obj.getIdObjetos()%></th>
-                    <td class="text-center"><%= obj.getNombreObjeto()%></td>
-                    <td class="text-center"><%= obj.getEfecto()%></td>
-                    <td class="text-center"><%= obj.getPeso()%></td>
-                    <td class="text-center"><%= obj.getUse()%></td>
-                    <td class="text-center">
-                        <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=editar&id=<%= obj.getIdObjetos()%>">
-                            <i class="bi bi-trash">Editar</i>
-                        </a>
-                    </td>
+                    <th class="text-center" scope="row"><%= hechi.getIdHechizos()%></th>
+                    <td class="text-center"><%= hechi.getNombreHechizo()%></td>
+                    <td class="text-center"><%= hechi.getElemento()%></td>
+                    <td class="text-center"><%= hechi.getPotencia()%></td>
+                    <td class="text-center"><%= hechi.getPrecision()%></td>
+                    <td class="text-center"><%= hechi.getBase()%></td>
+                    <td class="text-center"><%= hechi.getNbase()%></td>
+                    <td class="text-center"><%= hechi.getNivelAprendizaje()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=borrar&id=<%= obj.getIdObjetos()%>">
+                           href="<%=request.getContextPath()%>/AdminServlet?accion=borrar&id=<%= hechi.getIdHechizos()%>">
                             <i class="bi bi-trash">Borrar</i>
                         </a>
                     </td>
@@ -146,6 +146,7 @@
             </table>
         </div>
     </div>
+</div>
 
 
 
@@ -163,3 +164,4 @@
 
 </body>
 </html>
+

@@ -1,4 +1,9 @@
+<%@ page import="com.example.finalfantasy.Bean.Heroes" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList" %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +15,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Final Fantasy</title>
+    <title>Final Fantasy: Heroe</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -76,72 +81,70 @@
 </header>
 <!-- ***** Header Area End ***** -->
 
-<!-- ***** Main Banner Area Start ***** -->
-<div class="main-banner">
+
+<div class="discover-items" style="padding-top: 140px">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="header-text">
-
-                    <div class="card"  style="width: 40.5rem; height: 20rem; margin-top: 0rem;background-color: #00000090;">
-                        <div class="container">
-                            <p>
-                            <p></p>
-                            <div align = "left">
-                                <h4> Final Fantasy Games </h4>
-                                <p></p>
-                                <h3>¡Todo lo que debes saber del juego!</h3>
-                                <p></p>
-                                <h4>Niveles, Experiencia, Debilidades, Fortalezas Potencia &amp; más.</h4>
-                                <p>Tendrás la oportunidad de elegir si quieres ser héroe o villano, en esta wiki podrás descubrir detalles sobre la clase, la experiencia, el ataque, los objetos guardados y los hechizos de tu personaje</p>
-                            </div>
-                        </div>
-                        <p></p>
-
-                    </div>
-
-                    <div class="buttons">
-                        <div class="border-button">
-                            <a href="https://www.youtube.com/watch?v=Pm67u0wQFe4">Tráiler: Última Saga</a>
-                        </div>
-                        <div class="main-button">
-                            <a href="https://store.steampowered.com/agecheck/app/39210/?l=spanish" target="_blank">Compra Online</a>
-
-                        </div>
-                    </div>
+            <div class="col-lg-5">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h2>Lista de <em> Héroes </em></h2>
+                </div>
                 </div>
             </div>
-            <div class="col-lg-5 offset-lg-1">
-                <div class="owl-banner owl-carousel">
-                    <div class="item">
-                        <img src="assets/images/heroe.jpg" alt="">
+            <div class="col-lg-7">
+                <form id="search-form" name="gs" method="submit" role="search" action="#">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <fieldset>
+                                <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 532px; margin-left: 2rem; margin-top: 0.7rem">
+                            </fieldset>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <fieldset>
+                                <button class="main-button" style="margin-left: 20rem; margin-top: 0.7rem" >Buscar</button>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-2">
+                            <fieldset>
+                                <button class="main-button" style="margin-left: 20rem; margin-top: 0.7rem" >Añadir héroe</button>
+                            </fieldset>
+                        </div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>id</th>
+                                    <th>nombre</th>
+                                    <th>apellido</th>
+                                    <th>email</th>
+                                </tr>
+                                </tbody>
+                                </thead>
+                            </table>
+
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="assets/images/villano.jpg" alt="">
-                    </div>
-                    <div clas="item">
-                        <img src="assets/images/objeto.jpg" alt="">
-                    </div>
-                    <div clas="item">
-                        <img src="assets/images/hechizo.jpg" alt="">
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="assets/js/isotope.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
 
-<script src="assets/js/tabs.js"></script>
-<script src="assets/js/popup.js"></script>
-<script src="assets/js/custom.js"></script>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
 
 </body>
 </html>

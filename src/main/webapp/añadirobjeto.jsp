@@ -98,68 +98,63 @@
                     <h2>Descubre algunos de nuestros <em> Objetos </em></h2>
                 </div>
             </div>
-            <div class="col-lg-7" style="text-align: center;">
-                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
-                    <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=añadirobjeto">
-                            <i class="bi bi-pencil-square">Añadir Objeto</i>
-                        </a>
-                    </fieldset>
+            </div>
+            <div class="page-content fade-in-up">
+                <div class="col-md-6" style="margin: 0 auto">
+                    <div class="ibox" style="align-content: center">
+                        <div class="ibox-head">
+                            <div class="ibox-title">Datos de Objeto</div>
+                        </div>
+                        <div class="ibox-body">
+                            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=añadir">
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto">
+                                            <label for="floatingInputGrid1">Nombre del Ojeto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid2" placeholder="peso" name="pesoobjeto">
+                                            <label for="floatingInputGrid2">Peso</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid3" placeholder="efecto" name="efecto">
+                                            <label for="floatingInputGrid3">Efecto/Uso</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit" >Añadir</button>
+                                    <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <table class="table table-dark table-hover">
-                <thead>
-                <tr>
-                    <th scope="col" class="text-center">Id</th>
-                    <th scope="col" class="text-center">Nombre</th>
-                    <th scope="col" class="text-center">Efecto/Uso</th>
-                    <th scope="col" class="text-center">Peso</th>
-                    <th scope="col" class="text-center">Usado por un héroe</th>
-                    <th scope="col" class="text-center">Editar</th>
-                    <th scope="col" class="text-center">Borrar</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% for(Objetos obj : listaobjetos) {%>
-                <tr>
-                    <th class="text-center" scope="row"><%= obj.getIdObjetos()%></th>
-                    <td class="text-center"><%= obj.getNombreObjeto()%></td>
-                    <td class="text-center"><%= obj.getEfecto()%></td>
-                    <td class="text-center"><%= obj.getPeso()%></td>
-                    <td class="text-center"><%= obj.getUse()%></td>
-                    <td class="text-center">
-                        <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=editar&id=<%= obj.getIdObjetos()%>">
-                            <i class="bi bi-trash">Editar</i>
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a type="button" class="btn btn-danger"
-                           onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=borrar&id=<%= obj.getIdObjetos()%>">
-                            <i class="bi bi-trash">Borrar</i>
-                        </a>
-                    </td>
-                </tr>
-                <% }%>
-                </tbody>
-            </table>
         </div>
     </div>
 
 
 
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="assets/js/isotope.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
 
-<script src="assets/js/tabs.js"></script>
-<script src="assets/js/popup.js"></script>
-<script src="assets/js/custom.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
 
 </body>
 </html>
