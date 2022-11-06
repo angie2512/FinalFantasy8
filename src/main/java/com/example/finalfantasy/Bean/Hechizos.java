@@ -7,7 +7,6 @@ public class Hechizos {
     private int precision;
     private int nivelAprendizaje;
     private Hechizos heroes_idHeroes;
-    private Hechizos elemento_idElemento;
 
     private String elemento;
 
@@ -87,14 +86,6 @@ public class Hechizos {
 
     public void setHeroes_idHeroes(Hechizos heroes_idHeroes) {
         this.heroes_idHeroes = heroes_idHeroes;
-    }
-
-    public Hechizos getElemento_idElemento() {
-        return elemento_idElemento;
-    }
-
-    public void setElemento_idElemento(Hechizos elemento_idElemento) {
-        this.elemento_idElemento = elemento_idElemento;
     }
 
     public Hechizos getIdHechizoBase() {

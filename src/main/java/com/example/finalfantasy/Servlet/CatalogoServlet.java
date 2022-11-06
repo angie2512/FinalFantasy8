@@ -13,12 +13,9 @@ import java.util.ArrayList;
 public class CatalogoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ObjetosDao objetosDao = new ObjetosDao();
-        ArrayList<Objetos> lista = objetosDao.listarObjetos();
-        System.out.println(lista.get(0).getNombreObjeto());
-        System.out.println(lista.get(0).getEfecto());
-        RequestDispatcher view = request.getRequestDispatcher("catalogoobjetos.jsp");
-        view.forward(request, response);
+        RequestDispatcher view;
+        view = request.getRequestDispatcher("/catalogoobjetos.jsp");
+        view.forward(request,response);
     }
 
     @Override
