@@ -7,6 +7,16 @@ public class Objetos {
     private String efecto;
     private boolean usado;
 
+    private String use;
+
+    public String getUse() {
+        return use;
+    }
+
+    public void setUse(String use) {
+        this.use = use;
+    }
+
     public int getIdObjetos() {
         return idObjetos;
     }

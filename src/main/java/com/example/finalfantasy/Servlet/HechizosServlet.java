@@ -29,12 +29,8 @@ public class HechizosServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/HechizosServlet");
                 }
                 break;
-            case ("buscar"):
-                view = request.getRequestDispatcher("/añadirhechizos.jsp");
-                view.forward(request,response);
-                break;
             case ("añadirhechizo"):
-                view = request.getRequestDispatcher("/añadirhechizos.jsp");
+                view = request.getRequestDispatcher("/añadirhechizo.jsp");
                 view.forward(request,response);
                 break;
             case ("listar"):

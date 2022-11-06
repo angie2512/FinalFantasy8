@@ -99,26 +99,14 @@
                     <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <form id="search-form" name="gs" method="post" role="search">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <fieldset>
-                                <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un hechizo..." autocomplete="on" required style="width: 532px; margin-left: 2rem; margin-top: 0.7rem">
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-2">
-                            <fieldset>
-                                <button class="main-button" action="<%=request.getContextPath()%>/HechizosServlet?accion=buscar" style="margin-left: 20rem; margin-top: 0.7rem" >Buscar</button>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-2">
-                            <fieldset>
-                                <button class="main-button" action="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo" style="margin-left: 20rem; margin-top: 0.7rem" >Añadir hechizo</button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </form>
+            <div class="col-lg-7" style="text-align: center;">
+                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+                    <fieldset>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo">
+                            <i class="bi bi-pencil-square">Añadir Hechizo</i>
+                        </a>
+                    </fieldset>
+                </div>
             </div>
             <table class="table table-dark table-hover">
                 <thead>
@@ -128,6 +116,7 @@
                     <th scope="col" class="text-center">Elemento</th>
                     <th scope="col" class="text-center">Potencia</th>
                     <th scope="col" class="text-center">Precisión</th>
+                    <th scope="col" class="text-center">idHechizo Base</th>
                     <th scope="col" class="text-center">Hechizo Base</th>
                     <th scope="col" class="text-center">Nivel de Aprendizaje</th>
                     <th scope="col" class="text-center">Borrar</th>
@@ -142,6 +131,7 @@
                     <td class="text-center"><%= hechi.getPotencia()%></td>
                     <td class="text-center"><%= hechi.getPrecision()%></td>
                     <td class="text-center"><%= hechi.getBase()%></td>
+                    <td class="text-center"><%= hechi.getNbase()%></td>
                     <td class="text-center"><%= hechi.getNivelAprendizaje()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger"

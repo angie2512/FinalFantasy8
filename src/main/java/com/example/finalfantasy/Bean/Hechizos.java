@@ -14,6 +14,16 @@ public class Hechizos {
 
     private int nelemento;
 
+    private String nbase;
+
+    public String getNbase() {
+        return nbase;
+    }
+
+    public void setNbase(String nbase) {
+        this.nbase = nbase;
+    }
+
     public String getElemento() {
         return elemento;
     }

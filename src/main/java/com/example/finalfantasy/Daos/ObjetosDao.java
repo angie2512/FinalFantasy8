@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ObjetosDao extends BaseDao{
     public ArrayList<Objetos> listarObjetos() {
-        ArrayList<Objetos> lista = new ArrayList<>();
+        ArrayList<Objetos> listaobjetos = new ArrayList<>();
         String sql = "select * from objetos";
 
         try (Connection conn = this.getConnection();
@@ -15,17 +15,22 @@ public class ObjetosDao extends BaseDao{
             ResultSet rs = stmt.executeQuery(sql);){
             while (rs.next()) {
                 Objetos objetos = new Objetos();
-                objetos.setIdObjetos(rs.getInt(1));
-                objetos.setNombreObjeto(rs.getString(3));
-                objetos.setEfecto(rs.getString(4));
-                objetos.setPeso(rs.getFloat(2));
-                objetos.setUsado(rs.getBoolean(5));
-                lista.add(objetos);
+                objetos.setIdObjetos(rs.getInt("idObjetos"));
+                objetos.setNombreObjeto(rs.getString("NombreObjeto"));
+                objetos.setEfecto(rs.getString("Efecto"));
+                objetos.setPeso(rs.getFloat("Peso"));
+                objetos.setUsado(rs.getBoolean("Usado"));
+                if (rs.getBoolean("Usado")){
+                    objetos.setUse("Sí");
+                } else if (!rs.getBoolean("Usado")) {
+                    objetos.setUse("No");
+                }
+                listaobjetos.add(objetos);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return lista;
+        return listaobjetos;
     }
     public ArrayList<Objetos> listaObjetos() throws SQLException{
 
@@ -43,7 +48,7 @@ public class ObjetosDao extends BaseDao{
                 ele = rs.getInt("Usado");
                 if (ele==1){
                     objeto.setUsado(true);
-                } else if (ele==0) {
+                } else if (ele==0){
                     objeto.setUsado(false);
                 }
                 objeto.setPeso(rs.getFloat("Peso"));
@@ -55,19 +60,17 @@ public class ObjetosDao extends BaseDao{
         return listaObjetos;
     }
 
-    public void agregarHechizo(String nombre,int potencia, int accurate, int learn, int base,int elemento) {
+    public void agregarObjeto(String nombre,String efecti, float peso, boolean usado) {
 
-        String sql = "insert into hechizos (NombreHechizo,Potencia,Precision,NivelAprendizaje,idHechizoBase,Elementos_idElementos)";
+        String sql = "insert into hechizos (Peso,NombreObjeto,Efecto,Usado)";
 
         try (Connection conn1 = this.getConnection();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {
 
             pstmt1.setString(1,nombre);
-            pstmt1.setInt(2, potencia);
-            pstmt1.setInt(3,accurate);
-            pstmt1.setInt(4,learn);
-            pstmt1.setInt(5,base);
-            pstmt1.setInt(6,elemento);
+            pstmt1.setString(2, efecti);
+            pstmt1.setFloat(3,peso);
+            pstmt1.setBoolean(4,usado);
             pstmt1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

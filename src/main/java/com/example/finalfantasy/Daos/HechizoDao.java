@@ -38,10 +38,28 @@ public class HechizoDao extends  BaseDao{
                 hechizos.setElemento(nombreelemento);
                 listaHechizos.add(hechizos);
             }
+            for (Hechizos h : listaHechizos){
+                int ide = h.getBase();
+                String basee;
+                basee = nombrebaseid(listaHechizos,ide);
+                h.setNbase(basee);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return listaHechizos;
+    }
+    public String nombrebaseid(ArrayList<Hechizos> listahe, int id) {
+        int i;
+        String nombrebasehechizo = "Sin hechizo base";
+        for (Hechizos h : listahe){
+            i = h.getIdHechizos();
+            if (i==id){
+                nombrebasehechizo = h.getNombreHechizo();
+                return nombrebasehechizo;
+            }
+        }
+        return nombrebasehechizo;
     }
 
     public void agregarHechizo(String nombre,int potencia, int accurate, int learn, int base,int elemento) {
