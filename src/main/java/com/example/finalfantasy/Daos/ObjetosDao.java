@@ -65,12 +65,41 @@ public class ObjetosDao extends BaseDao{
         String sql = "insert into objetos (Peso,NombreObjeto,Efecto,Usado) values (?,?,?,?)";
 
         try (Connection conn1 = this.getConnection();
-             PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
 
-            pstmt1.setString(1,nombre);
-            pstmt1.setString(2, efecti);
-            pstmt1.setFloat(3,peso);
+            pstmt1.setString(2,nombre);
+            pstmt1.setString(3, efecti);
+            pstmt1.setFloat(1,peso);
             pstmt1.setBoolean(4,usado);
+            pstmt1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editarObjetoSi(String efecto, int id) {
+
+        String sql = "UPDATE Objetos SET Efecto = ? WHERE idObjetos = ?";
+
+        try (Connection conn1 = this.getConnection();
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
+
+            pstmt1.setString(1,efecto);
+            pstmt1.setInt(2, id);
+            pstmt1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editarObjetoNo(String efecto, float peso, int id) {
+
+        String sql = "UPDATE Objetos SET Efecto = ?, Peso = ? WHERE idObjetos = ?";
+
+        try (Connection conn1 = this.getConnection();
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
+
+            pstmt1.setString(1,efecto);
+            pstmt1.setFloat(2,peso);
+            pstmt1.setInt(3, id);
             pstmt1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
