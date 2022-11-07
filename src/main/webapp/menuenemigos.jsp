@@ -124,6 +124,7 @@
                     <th scope="col" class="text-center">Ataque</th>
                     <th scope="col" class="text-center">Experiencia</th>
                     <th scope="col" class="text-center">Objeto</th>
+                    <th scope="col" class="text-center">Clase</th>
                     <th scope="col" class="text-center">Probabilidad Objeto</th>
                     <th scope="col" class="text-center">Genero</th>
                 </tr>
@@ -136,6 +137,7 @@
                     <td class="text-center"><%= enem.getAtaque()%></td>
                     <td class="text-center"><%= enem.getExperiencia()%></td>
                     <td class="text-center"><%= enem.getObjeto()%></td>
+                    <td class="text-center"><%= enem.getClase()%></td>
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
                     <td class="text-center"><%= enem.getGenero()%></td>
 
@@ -143,14 +145,14 @@
 
                     <td class="text-center">
                         <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
+                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
                             <i class="bi bi-trash">Editar</i>
                         </a>
                     </td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=borrar&id=<%= enem.getIdVillanos()%>">
+                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=borrar&id=<%= enem.getIdVillanos()%>">
                             <i class="bi bi-trash">Borrar</i>
                         </a>
                     </td>

@@ -11,8 +11,8 @@ public class ObjetosDao extends BaseDao{
         String sql = "select * from objetos";
 
         try (Connection conn = this.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);){
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql);){
             while (rs.next()) {
                 Objetos objetos = new Objetos();
                 objetos.setIdObjetos(rs.getInt("idObjetos"));
@@ -32,32 +32,28 @@ public class ObjetosDao extends BaseDao{
         }
         return listaobjetos;
     }
-    public ArrayList<Objetos> listaObjetos() throws SQLException{
 
-        ArrayList<Objetos> listaObjetos = new ArrayList<>();
-        String sql = "select * from objetos";
-        try (Connection connection = this.getConnection();
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);) {
-            int ele;
-            while (rs.next()) {
-                Objetos objeto = new Objetos();
-                objeto.setIdObjetos(rs.getInt("idObjetos"));
-                objeto.setNombreObjeto(rs.getString("NombreObjeto"));
-                objeto.setEfecto(rs.getString("Efecto"));
-                ele = rs.getInt("Usado");
-                if (ele==1){
-                    objeto.setUsado(true);
-                } else if (ele==0){
-                    objeto.setUsado(false);
+    public Objetos obtenerObjeto(int id) {
+        Objetos ob = null;
+        String sql = "SELECT * FROM objetos WHERE idObjetos = ?";
+        try (Connection conn5 = this.getConnection();
+             PreparedStatement pstmt5 = conn5.prepareStatement(sql)){
+            pstmt5.setInt(1, id);
+            try (ResultSet rs = pstmt5.executeQuery()) {
+                if (rs.next()) {
+                    ob = new Objetos();
+                    ob.setIdObjetos(id);
+                    ob.setNombreObjeto(rs.getString("NombreObjeto"));
+                    ob.setPeso(rs.getFloat("Peso"));
+                    ob.setEfecto(rs.getString("Efecto"));
+                    ob.setUsado(rs.getBoolean("Usado"));
                 }
-                objeto.setPeso(rs.getFloat("Peso"));
-                listaObjetos.add(objeto);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        return listaObjetos;
+
+        return ob;
     }
 
     public void agregarObjeto(String nombre,String efecti, float peso, boolean usado) {
@@ -65,12 +61,41 @@ public class ObjetosDao extends BaseDao{
         String sql = "insert into objetos (Peso,NombreObjeto,Efecto,Usado) values (?,?,?,?)";
 
         try (Connection conn1 = this.getConnection();
-             PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
 
-            pstmt1.setString(1,nombre);
-            pstmt1.setString(2, efecti);
-            pstmt1.setFloat(3,peso);
+            pstmt1.setString(2,nombre);
+            pstmt1.setString(3, efecti);
+            pstmt1.setFloat(1,peso);
             pstmt1.setBoolean(4,usado);
+            pstmt1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editarObjetoSi(String efecto, int id) {
+
+        String sql = "UPDATE objetos SET Efecto = ? WHERE idObjetos = ?";
+
+        try (Connection conn1 = this.getConnection();
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
+
+            pstmt1.setString(1,efecto);
+            pstmt1.setInt(2, id);
+            pstmt1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editarObjetoNo(String efecto, float peso, int id) {
+
+        String sql = "UPDATE objetos SET Efecto = ?, Peso = ? WHERE idObjetos = ?";
+
+        try (Connection conn1 = this.getConnection();
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
+
+            pstmt1.setString(1,efecto);
+            pstmt1.setFloat(2,peso);
+            pstmt1.setInt(3, id);
             pstmt1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
