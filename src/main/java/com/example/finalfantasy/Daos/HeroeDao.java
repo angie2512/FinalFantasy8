@@ -99,21 +99,23 @@ public class HeroeDao extends BaseDao{
     }
 
 
-    public void añadirHeroes(String nombreh,int edadh,String generoh, int nivelh, int ataqueh,String claseh,int parejah, int ExperienciaInicial) throws SQLException {
+    public void añadirHeroes(Heroes heroes) throws SQLException {
         String sql = "insert into heroes (Nombre,Edad,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1,edadh);
-            pstmt.setString(2,nombreh);
-            pstmt.setString(3,generoh);
-            pstmt.setInt(4,nivelh);
-            pstmt.setInt(5,ataqueh);
-            pstmt.setString(6,claseh);
-            pstmt.setInt(7,parejah);
-            pstmt.setFloat(8, ExperienciaInicial);
+            pstmt.setInt(1, heroes.getEdad());
+            pstmt.setString(2,heroes.getNombre());
+            pstmt.setString(3,heroes.getGenero());
+            pstmt.setInt(4,heroes.getNivel());
+            pstmt.setInt(5,heroes.getAtaque());
+            pstmt.setString(6,heroes.getClase());
+            pstmt.setInt(7, heroes.getIdHeroes());
+            pstmt.setFloat(8, heroes.getExperienciaInicial());
+
+            pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
