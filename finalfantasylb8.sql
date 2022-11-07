@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `clase`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clase` (
-  `idClase` int NOT NULL AUTO_INCREMENT,
+  `idClase` int NOT NULL,
   `NombreClase` varchar(45) NOT NULL,
   PRIMARY KEY (`idClase`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,10 +104,10 @@ DROP TABLE IF EXISTS `hechizos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hechizos` (
-  `idHechizos` int NOT NULL,
+  `idHechizos` int NOT NULL AUTO_INCREMENT,
   `NombreHechizos` varchar(15) NOT NULL,
   `Potencia` int NOT NULL,
-  `Precision` int NOT NULL,
+  `accurate` int NOT NULL,
   `NivelAprendizaje` int DEFAULT NULL,
   `Heroes_idHeroes` int NOT NULL,
   `Elementos_idElementos` int NOT NULL,
@@ -174,7 +174,7 @@ DROP TABLE IF EXISTS `objetos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `objetos` (
-  `idObjetos` int NOT NULL,
+  `idObjetos` int NOT NULL AUTO_INCREMENT,
   `Peso` float NOT NULL,
   `NombreObjeto` varchar(45) NOT NULL,
   `Efecto` text NOT NULL,
@@ -231,4 +231,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-05 14:34:13
+-- Dump completed on 2022-11-04 15:26:40
