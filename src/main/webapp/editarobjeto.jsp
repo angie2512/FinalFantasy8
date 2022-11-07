@@ -106,11 +106,11 @@
             <div class="ibox-title">Datos de Objeto</div>
           </div>
           <div class="ibox-body">
-            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=añadir">
+            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=editarobjeto&id=<%= objeto.getIdObjetos()%>">
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idobjeto" aria-label="Disabled input example" disabled readonly>
+                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idobjeto"  aria-label="Disabled input example" disabled readonly>
                     <label for="floatingInputGrid1">Id Objeto:<%=objeto.getIdObjetos()%></label>
                   </div>
                 </div>
@@ -121,10 +121,27 @@
                   </div>
                 </div>
               </div>
+              <% boolean i = objeto.isUsado();
+                if (i) { %>
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nombre" name="nombreobjeto">
+                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nombre" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid1">Peso: <%=objeto.getPeso()%></label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid4" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid2">¿Es Usado?: <%= objeto.getUse()%></label>
+                  </div>
+                </div>
+              </div>
+              <%} else{ %>
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nombre" name="peso">
                     <label for="floatingInputGrid1">Peso: </label>
                   </div>
                 </div>
@@ -135,6 +152,7 @@
                   </div>
                 </div>
               </div>
+              <%}%>
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">

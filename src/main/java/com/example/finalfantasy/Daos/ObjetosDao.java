@@ -47,6 +47,11 @@ public class ObjetosDao extends BaseDao{
                     ob.setPeso(rs.getFloat("Peso"));
                     ob.setEfecto(rs.getString("Efecto"));
                     ob.setUsado(rs.getBoolean("Usado"));
+                    if (rs.getBoolean("Usado")){
+                        ob.setUse("Sí");
+                    } else if (!rs.getBoolean("Usado")) {
+                        ob.setUse("No");
+                    }
                 }
             }
         } catch (SQLException e) {

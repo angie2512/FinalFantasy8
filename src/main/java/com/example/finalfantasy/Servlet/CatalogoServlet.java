@@ -67,6 +67,24 @@ public class CatalogoServlet extends HttpServlet {
         ObjetosDao objeto1 = new ObjetosDao();
         RequestDispatcher view;
         switch (accion){
+            case ("editarobjeto"):
+                String id= request.getParameter("id");
+                int idd = Integer.parseInt(id);
+                String peso1 = request.getParameter("pesoobjeto");
+                String efecto1 = request.getParameter("efecto");
+                if (peso1==null){
+                    objeto1.editarObjetoSi(efecto1,idd);
+                }
+                else {
+                    float weight1 = Float.parseFloat(peso1);
+                    objeto1.editarObjetoNo(efecto1,weight1,idd);
+                }
+                ArrayList<Objetos> listaObjetos = null;
+                listaObjetos = objeto1.listarObjetos();
+                request.setAttribute("listaObjetos",listaObjetos);
+                view = request.getRequestDispatcher("/catalogoobjetos.jsp");
+                view.forward(request,response);
+                break;
             case ("añadir"):
                 String nombre = request.getParameter("nombreobjeto");
                 String peso = request.getParameter("pesoobjeto");
@@ -74,9 +92,9 @@ public class CatalogoServlet extends HttpServlet {
                 boolean usado = false;
                 float weight = Float.parseFloat(peso);
                 objeto1.agregarObjeto(nombre,efecto, weight,usado);
-                ArrayList<Objetos> listaObjetos = null;
-                listaObjetos = objeto1.listarObjetos();
-                request.setAttribute("listaObjetos",listaObjetos);
+                ArrayList<Objetos> listaObjetos1 = null;
+                listaObjetos1 = objeto1.listarObjetos();
+                request.setAttribute("listaObjetos",listaObjetos1);
                 view = request.getRequestDispatcher("/catalogoobjetos.jsp");
                 view.forward(request,response);
                 break;
