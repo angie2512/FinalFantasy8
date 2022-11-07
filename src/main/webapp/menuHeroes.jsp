@@ -114,7 +114,7 @@
                     </fieldset>
                 </div>
             </div>
-            <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet">
+            <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet?accion=buscar">
                 <div class="col-lg-4">
                     <fieldset>
                         <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un héroe..." autocomplete="on" required style="width: 1140px;margin-top: 0.7rem">
@@ -175,13 +175,12 @@
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id"<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
-                           onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/HeroesServlet<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-box-open"></i>
                         </a>

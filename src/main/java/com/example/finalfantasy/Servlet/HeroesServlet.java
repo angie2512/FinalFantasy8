@@ -51,18 +51,19 @@ public class HeroesServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String buscar = request.getParameter("keyword");
-        HeroeDao heroeDao = new HeroeDao();
-        ArrayList<Heroes> listaFiltrada =heroeDao.buscarPorNombre(buscar);
-        request.setAttribute("ListaHeroes",listaFiltrada);
-        RequestDispatcher view = request.getRequestDispatcher("menuHeroes.jsp");
-        view.forward(request, response);
-
+        request.setCharacterEncoding("UTF-8");
         String accion = request.getParameter("accion");
-        HeroeDao heroeDao1 = new HeroeDao();
-
+        HeroeDao heroeDao = new HeroeDao();
+        RequestDispatcher view;
 
         switch (accion){
+            case("buscar"):
+                String buscar = request.getParameter("keyword");
+                ArrayList<Heroes> listaFiltrada =heroeDao.buscarPorNombre(buscar);
+                request.setAttribute("ListaHeroes",listaFiltrada);
+                view = request.getRequestDispatcher("/menuHeroes.jsp");
+                view.forward(request,response);
+                break;
 
             case ("añadir"):
                 String nombre = request.getParameter("nombreheroe");
@@ -77,13 +78,6 @@ public class HeroesServlet extends HttpServlet {
                 int ataqueh = Integer.parseInt(ataque);
                 int parejaid = Integer.parseInt(pareja);
 
-                try {
-                    heroeDao1.añadirHeroes(nombre,edadh,genero,nivelh,ataqueh,clase,parejaid);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                response.sendRedirect(request.getContextPath() + "/HeroesServlet");
-                break;
 
         }
     }

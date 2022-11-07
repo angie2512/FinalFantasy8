@@ -99,8 +99,8 @@ public class HeroeDao extends BaseDao{
     }
 
 
-    public void añadirHeroes(String nombreh,int edadh,String generoh, int nivelh, int ataqueh,String claseh,int parejah) throws SQLException {
-        String sql = "insert into heroes (Edad,Nombre,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
+    public void añadirHeroes(String nombreh,int edadh,String generoh, int nivelh, int ataqueh,String claseh,int parejah, int ExperienciaInicial) throws SQLException {
+        String sql = "insert into heroes (Nombre,Edad,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
         float exp = 0;
 
         try (Connection conn = this.getConnection();
@@ -112,15 +112,6 @@ public class HeroeDao extends BaseDao{
             pstmt.setInt(5,ataqueh);
             pstmt.setString(6,claseh);
             pstmt.setInt(7,parejah);
-            if (0<nivelh && nivelh<=15){
-                exp = (nivelh*nivelh*nivelh)*(24+(nivelh+1)/3)/50;
-            } else if (16<=nivelh && nivelh<=35) {
-                exp = (nivelh*nivelh*nivelh)*(14+(nivelh))/50;
-            } else if (36<=nivelh && nivelh<=100) {
-                exp = (nivelh*nivelh*nivelh)*(32+(nivelh)/2)/50;
-            }
-            pstmt.setFloat(8,exp);
-            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

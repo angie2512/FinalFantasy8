@@ -17,11 +17,10 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-  <title>Final Fantasy: Hechizos</title>
+  <title>Final Fantasy: Héroes</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -66,7 +65,7 @@
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li><a href="<%=request.getContextPath()%>/HechizosServlet" class="active">Principal</a></li>
+            <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Principal</a></li>
             <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
             <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
             <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
@@ -90,73 +89,50 @@
       <div class="col-lg-5">
         <div class="section-heading">
           <div class="line-dec"></div>
-          <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
+          <h2>Lista de <em> Héroes </em></h2>
         </div>
       </div>
-      <div class="page-content fade-in-up">
-        <div class="col-md-6" style="margin: 0 auto">
-          <div class="ibox" style="align-content: center">
-            <div class="ibox-head">
-              <div class="ibox-title">Datos de Hechizo</div>
-            </div>
-            <div class="ibox-body">
-              <form method="post" action="<%=request.getContextPath()%>/HechizosServlet?accion=añadir">
-                <div class="row g-2">
-                  <div class="col-md">
-                    <div class="form-floating" style="margin-bottom: 5px;">
-                      <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombrehechizo">
-                      <label for="floatingInputGrid1">Nombre del Hechizo</label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-floating">
-                      <select class="form-select" id="floatingSelectGrid1" name="elementohechizo">
-                        <option selected>Elemento</option>
-                        <option value="1">Fuego</option>
-                        <option value="2">Tierrez</option>
-                        <option value="3">Agua</option>
-                        <option value="4">Viento</option>
-                        <option value="5">Void</option>
-                      </select>
-                      <label for="floatingSelectGrid1">Elemento</label>
-                    </div>
+    </div>
+    <div class="page-content fade-in-up">
+      <div class="col-md-6" style="margin: 0 auto">
+        <div class="ibox" style="align-content: center">
+          <div class="ibox-head">
+            <div class="ibox-title" style="color:white">Datos del Héroe</div>
+          </div>
+          <div class="ibox-body">
+            <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=añadir">
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreheroe">
+                    <label for="floatingInputGrid1">Nombre del Héroe</label>
                   </div>
                 </div>
-                <div class="row g-2">
-                  <div class="col-md">
-                    <div class="form-floating" style="margin-bottom: 5px;">
-                      <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Potencia" name="potenciahechizo">
-                      <label for="floatingInputGrid3">Potencia</label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-floating" style="margin-bottom: 5px;">
-                      <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Precision" name="precisionhechizo">
-                      <label for="floatingInputGrid4">Precisión</label>
-                    </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="edad" name="edadheroe">
+                    <label for="floatingInputGrid2">Edad</label>
                   </div>
                 </div>
-                <div class="row g-2">
-                  <div class="col-md">
-                    <div class="form-floating" style="margin-bottom: 5px;">
-                      <input type="text" class="form-control" id="floatingInputGrid5" placeholder="NivelAprendizaje" name="nivelaprendizaje">
-                      <label for="floatingInputGrid4">Nivel de Aprendizaje</label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-floating" style="margin-bottom: 5px;">
-                      <input type="text" class="form-control" id="floatingInputGrid6" placeholder="Hechizo base" name="basehechizo">
-                      <label for="floatingInputGrid6">Hechizo base</label>
-                    </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid1" name="generoheroe">
+                      <option selected>Género</option>
+                      <option value="1">M</option>
+                      <option value="2">F</option>
+                      <option value="3">O</option>
+                    </select>
+                    <label for="floatingSelectGrid1">Geénero</label>
                   </div>
                 </div>
-                <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
-                <div class="form-group">
-                  <button class="btn btn-primary" type="submit" >Registrar</button>
-                  <a href="<%=request.getContextPath()%>/HechizosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
-                </div>
-              </form>
-            </div>
+              </div>
+
+              <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
+              <div class="form-group">
+                <button class="btn btn-primary" type="submit" >Añadir</button>
+                <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+              </div>
+            </form>
           </div>
         </div>
       </div>
