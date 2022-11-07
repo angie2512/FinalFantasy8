@@ -145,16 +145,16 @@
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
                     <td class="text-center"><%= enem.getGenero()%></td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
-                            <i class="bi bi-trash">Editar</i>
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
+                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
+                            <i class="fa-solid fa-pen"></i>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/CatalogoServlet?accion=borrar&id=<%= enem.getIdVillanos()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=borrar&id=<%= enem.getIdVillanos()%>">
+                            <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>
