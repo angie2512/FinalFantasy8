@@ -114,7 +114,7 @@
                                             <select class="form-select" id="floatingSelectGrid1" name="elementohechizo">
                                                 <option selected>Elemento</option>
                                                 <option value="1">Fuego</option>
-                                                <option value="2">Tierrez</option>
+                                                <option value="2">Tierra</option>
                                                 <option value="3">Agua</option>
                                                 <option value="4">Viento</option>
                                                 <option value="5">Void</option>
@@ -154,7 +154,7 @@
                                 <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit" >Registrar</button>
-                                    <a href="<%=request.getContextPath()%>/HechizosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                                    <a href="<%=request.getContextPath()%>/HechizosServlet?accion=añadir" class="btn btn-secondary">Cancelar</a>
                                 </div>
                             </form>
                         </div>

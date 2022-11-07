@@ -136,7 +136,7 @@
                     <td class="text-center">
                         <a type="button" class="btn btn-danger"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/AdminServlet?accion=borrar&id=<%= hechi.getIdHechizos()%>">
+                           href="<%=request.getContextPath()%>/HechizosServlet?accion=borrar&id=<%= hechi.getIdHechizos()%>">
                             <i class="bi bi-trash">Borrar</i>
                         </a>
                     </td>

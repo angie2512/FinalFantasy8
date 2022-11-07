@@ -63,9 +63,8 @@ public class HechizosServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String accion = request.getParameter("accion");
         HechizoDao hechi1 = new HechizoDao();
-
+        RequestDispatcher view;
         switch (accion){
-
             case ("añadir"):
                 String nombre = request.getParameter("nombrehechizo");
                 String elemento = request.getParameter("elementohechizo");
@@ -79,7 +78,15 @@ public class HechizosServlet extends HttpServlet {
                 int bas = Integer.parseInt(base);
                 int lvl = Integer.parseInt(nivela);
                 hechi1.agregarHechizo(nombre,pot,prec, lvl, bas,elel);
-                response.sendRedirect(request.getContextPath() + "/HechizosServlet");
+                ArrayList<Hechizos> listaHechizos = null;
+                try {
+                    listaHechizos = hechi1.listarHechizos();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                request.setAttribute("listaHechizos",listaHechizos);
+                view = request.getRequestDispatcher("/menuhechizos.jsp");
+                view.forward(request,response);
                 break;
 
         }

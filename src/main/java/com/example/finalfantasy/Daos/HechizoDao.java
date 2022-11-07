@@ -21,7 +21,7 @@ public class HechizoDao extends  BaseDao{
                 hechizos.setIdHechizos(rs.getInt("idHechizos"));
                 hechizos.setNombreHechizo(rs.getString("NombreHechizos"));
                 hechizos.setPotencia(rs.getInt("Potencia"));
-                hechizos.setPrecision(rs.getInt("Precision"));
+                hechizos.setPrecision(rs.getInt("accurate"));
                 hechizos.setNivelAprendizaje(rs.getInt("NivelAprendizaje"));
                 hechizos.setBase(rs.getInt("idHechizoBase"));
                 String nombreelemento;
@@ -64,18 +64,19 @@ public class HechizoDao extends  BaseDao{
 
     public void agregarHechizo(String nombre,int potencia, int accurate, int learn, int base,int elemento) {
 
-        String sql = "insert into hechizos (NombreHechizo,Potencia,Precision,NivelAprendizaje,idHechizoBase,Elementos_idElementos) values (?,?,?,?,?,?)";
+        String sql = "insert into hechizos (NombreHechizos,Potencia,accurate,NivelAprendizaje,Heroes_idHeroes,Elementos_idElementos,idHechizoBase) values (?,?,?,?,?,?,?)";
 
-        try (Connection conn1 = this.getConnection();
-             PreparedStatement pstmt1 = conn1.prepareStatement(sql);) {
-
-            pstmt1.setString(1,nombre);
-            pstmt1.setInt(2, potencia);
-            pstmt1.setInt(3,accurate);
-            pstmt1.setInt(4,learn);
-            pstmt1.setInt(5,base);
-            pstmt1.setInt(6,elemento);
-            pstmt1.executeUpdate();
+        try (Connection conn3 = this.getConnection();
+             PreparedStatement pstmt3 = conn3.prepareStatement(sql)) {
+            int i = 1;
+            pstmt3.setString(1,nombre);
+            pstmt3.setInt(2, potencia);
+            pstmt3.setInt(3,accurate);
+            pstmt3.setInt(4,learn);
+            pstmt3.setInt(5,i);
+            pstmt3.setInt(6,elemento);
+            pstmt3.setInt(7,base);
+            pstmt3.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,7 +86,7 @@ public class HechizoDao extends  BaseDao{
         String sql = "delete from hechizos where idHechizos = ?";
         String sql1 = "delete from hechizos where idHechizoBase = ?";
         try (Connection conn3 = this.getConnection();
-             PreparedStatement pstmt4 = conn3.prepareStatement(sql1);) {
+             PreparedStatement pstmt4 = conn3.prepareStatement(sql1)) {
 
             pstmt4.setInt(1,idHechizo);
             pstmt4.executeUpdate();
@@ -94,7 +95,7 @@ public class HechizoDao extends  BaseDao{
             e.printStackTrace();
         }
         try (Connection conn2 = this.getConnection();
-             PreparedStatement pstmt3 = conn2.prepareStatement(sql);) {
+             PreparedStatement pstmt3 = conn2.prepareStatement(sql)) {
 
             pstmt3.setInt(1,idHechizo);
             pstmt3.executeUpdate();
