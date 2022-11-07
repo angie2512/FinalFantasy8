@@ -167,6 +167,13 @@
                             <i class="bi bi-trash">Borrar</i>
                         </a>
                     </td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-danger"
+                           onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
+                            <i class="bi bi-trash">Borrar</i>
+                        </a>
+                    </td>
                 </tr>
                 <% i++;
                 }
