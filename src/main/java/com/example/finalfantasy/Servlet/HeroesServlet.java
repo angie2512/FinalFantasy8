@@ -75,23 +75,31 @@ public class HeroesServlet extends HttpServlet {
                 String ataque = request.getParameter("ataqueheroe");
                 String pareja = request.getParameter("parejah");
                 String experiencia = request.getParameter("experienciah");
+                try{
                 int edadh = Integer.parseInt(edad);
                 int nivelh = Integer.parseInt(nivel);
                 int ataqueh = Integer.parseInt(ataque);
                 int parejah = Integer.parseInt(pareja);
                 int experienciah = Integer.parseInt(experiencia);
-                try {
-                    heroeDao1.añadirHeroes(nombre,edadh,genero,nivelh,ataqueh,clase,parejah,experienciah);
+                Heroes newheroe = new Heroes();
+                newheroe.setNombre(nombre);
+                newheroe.setEdad(edadh);
+                newheroe.setGenero(genero);
+                newheroe.setNivel(nivelh);
+                newheroe.setAtaque(ataqueh);
+                newheroe.setClase(clase);
+                newheroe.setIdHeroes(parejah);
+                newheroe.setExperienciaInicial(experienciah);
+                heroeDao1.añadirHeroes(newheroe);
+                response.sendRedirect(request.getContextPath() + "/HeroesServlet?action=listar");
+                } catch (NumberFormatException e) {
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?action=añadir");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                ArrayList<Heroes> listaHeroes = null;
-                request.setAttribute("listaHeroes",listaHeroes);
-                view = request.getRequestDispatcher("/menuHeroes.jsp");
-                view.forward(request,response);
                 break;
+        }
 
 
         }
-    }
 }
