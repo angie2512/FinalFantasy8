@@ -19,6 +19,19 @@ public class CatalogoServlet extends HttpServlet {
         ObjetosDao objeto = new ObjetosDao();
 
         switch (accion){
+            case ("editar"):
+                String id= request.getParameter("id");
+                int o = Integer.parseInt(id);
+                Objetos ob = objeto.obtenerObjeto(o);
+                if(ob == null){
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServelt");
+                }else{
+                    request.setAttribute("editar",ob);
+                    view = request.getRequestDispatcher("editarobjeto.jsp");
+                    view.forward(request, response);
+                }
+                break;
+
             case ("borrar"):
                 String spell = request.getParameter("id");
                 try {

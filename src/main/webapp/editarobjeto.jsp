@@ -11,7 +11,7 @@
 <jsp:useBean id="objeto" type="com.example.finalfantasy.Bean.Objetos" scope="request"/>
 
 <%
-  //ArrayList<Objetos> listaobjetos = (ArrayList<Objetos>) request.getAttribute("listaObjetos");
+  Objetos objeto = (Objetos) request.getAttribute("editar");
 %>
 <!DOCTYPE html>
 <html lang="en">
