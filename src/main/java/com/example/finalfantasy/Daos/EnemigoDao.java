@@ -26,6 +26,7 @@ public class EnemigoDao extends BaseDao{
                 enemigos.setExperiencia(rs.getInt("Experiencia"));
                 enemigos.setObjeto(rs.getString("Objeto"));
                 enemigos.setGenero(rs.getString("Genero"));
+                enemigos.setProbabilidadObjeto(rs.getFloat("ProbabilidadObjeto"));
                 try (Connection connection2 = this.getConnection();
                      Statement stmt2 = connection2.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                      ResultSet rs1 = stmt2.executeQuery(sql);) {
