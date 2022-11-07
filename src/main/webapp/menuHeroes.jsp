@@ -39,7 +39,10 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <script src="https://kit.fontawesome.com/46baa8e193.js" crossorigin="anonymous"></script>
     <!--
+
 
     TemplateMo 577 Liberty Market
 
@@ -136,6 +139,8 @@
                     <th scope="col" class="text-center">Ataque</th>
                     <th scope="col" class="text-center">Pareja</th>
                     <th scope="col" class="text-center">Exp. Inicial</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -161,19 +166,22 @@
                     <td class="text-center" >--Sin pareja--</td><%}%>
                     <td class="text-center"><%=heroes.getExperienciaInicial()%></td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                            <i class="fa-solid fa-pen"></i></i>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                            <i class="fa-solid fa-trash"></i></i>
                         </a>
                     </td>
+
+
+
                 </tr>
                 <% i++;
                 }
