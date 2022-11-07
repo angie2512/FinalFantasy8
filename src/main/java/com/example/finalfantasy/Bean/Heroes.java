@@ -10,6 +10,9 @@ public class Heroes {
     private int ataque;
     private Heroes pareja;
 
+    private float experienciaInicial;
+    private String clase;
+
 
     public Heroes getPareja() {
         return pareja;
@@ -19,8 +22,7 @@ public class Heroes {
         this.pareja = pareja;
     }
 
-    private float experienciaInicial;
-    private String clase;
+
 
     public int getIdHeroes() {
         return idHeroes;

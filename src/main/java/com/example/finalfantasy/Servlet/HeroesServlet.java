@@ -2,6 +2,7 @@ package com.example.finalfantasy.Servlet;
 
 
 import com.example.finalfantasy.Bean.Heroes;
+import com.example.finalfantasy.Bean.Objetos;
 import com.example.finalfantasy.Daos.HechizoDao;
 import com.example.finalfantasy.Daos.HeroeDao;
 import jakarta.servlet.*;
@@ -30,6 +31,20 @@ public class HeroesServlet extends HttpServlet {
             case ("añadirheroe"):
                 view = request.getRequestDispatcher("/añadirHeroe.jsp");
                 view.forward(request,response);
+                break;
+            case ("borrar"):
+                String spell = request.getParameter("id");
+                try {
+                    int spella = Integer.parseInt(spell);
+                    heroeDao.eliminarHeroe(spella);
+                    ArrayList<Heroes> listaHeroes = null;
+                    listaHeroes = heroeDao.listarHeroes();
+                    request.setAttribute("ListaHeroes",listaHeroes);
+                    view = request.getRequestDispatcher("/menuHeroes.jsp");
+                    view.forward(request,response);
+                }catch (NumberFormatException e){
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet");
+                }
                 break;
         }
     }

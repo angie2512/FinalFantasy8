@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ page import="com.example.finalfantasy.Bean.Heroes" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 
 <%
@@ -170,24 +168,25 @@
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-pen"></i></i>
                         </a>
                     </td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-box-open"></i>
                         </a>
                     </td>
+
 
 
 

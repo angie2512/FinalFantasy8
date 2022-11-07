@@ -125,4 +125,30 @@ public class HeroeDao extends BaseDao{
             e.printStackTrace();
         }
     }
+
+    public void eliminarHeroe (int idHeroe){
+
+        String sql = "delete from heroes where idHeroes = ?";
+        String sql1 = "delete from objetos_has_heroes where Heroes_idHeroes = ?";
+
+
+        try (Connection conne = this.getConnection();
+             PreparedStatement pstmta = conne.prepareStatement(sql1);) {
+
+            pstmta.setInt(1,idHeroe);
+            pstmta.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try (Connection connb = this.getConnection();
+             PreparedStatement pstmtb = connb.prepareStatement(sql);) {
+
+            pstmtb.setInt(1,idHeroe);
+            pstmtb.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
