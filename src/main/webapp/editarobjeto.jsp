@@ -111,34 +111,34 @@
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
                     <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idobjeto" aria-label="Disabled input example" disabled readonly>
-                    <label for="floatingInputGrid1">Id Objeto:</label>
+                    <label for="floatingInputGrid1">Id Objeto:<%=objeto.getIdObjetos()%></label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
                     <input class="form-control" type="text" id="floatingInputGrid2" placeholder="nombreobjeto" aria-label="Disabled input example" disabled readonly>
-                    <label for="floatingInputGrid2">Nombre: </label>
+                    <label for="floatingInputGrid2">Nombre: <%=objeto.getNombreObjeto()%></label>
                   </div>
                 </div>
               </div>
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto">
+                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nombre" name="nombreobjeto">
                     <label for="floatingInputGrid1">Peso: </label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
-                    <label for="floatingInputGrid2">¿Es Usado?: </label>
+                    <input type="text" class="form-control" id="floatingInputGrid4" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid2">¿Es Usado?: <%= objeto.getUse()%></label>
                   </div>
                 </div>
               </div>
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="efecto" name="efecto">
+                    <input type="text" class="form-control" id="floatingInputGrid5" placeholder="efecto" name="efecto">
                     <label for="floatingInputGrid3">Efecto/Uso :</label>
                   </div>
                 </div>
