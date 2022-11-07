@@ -24,7 +24,7 @@ public class CatalogoServlet extends HttpServlet {
                 int o = Integer.parseInt(id);
                 Objetos ob = objeto.obtenerObjeto(o);
                 if(ob == null){
-                    response.sendRedirect(request.getContextPath() + "/CatalogoServelt");
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 }else{
                     request.setAttribute("editar",ob);
                     view = request.getRequestDispatcher("editarobjeto.jsp");
@@ -37,11 +37,7 @@ public class CatalogoServlet extends HttpServlet {
                 try {
                     int spelli = Integer.parseInt(spell);
                     objeto.eliminarObjeto(spelli);
-                    ArrayList<Objetos> listaObjetos = null;
-                    listaObjetos = objeto.listarObjetos();
-                    request.setAttribute("listaObjetos",listaObjetos);
-                    view = request.getRequestDispatcher("/catalogoobjetos.jsp");
-                    view.forward(request,response);
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 }catch (NumberFormatException e){
                     response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
                 }
@@ -79,11 +75,7 @@ public class CatalogoServlet extends HttpServlet {
                     float weight1 = Float.parseFloat(peso1);
                     objeto1.editarObjetoNo(efecto1,weight1,idd);
                 }
-                ArrayList<Objetos> listaObjetos = null;
-                listaObjetos = objeto1.listarObjetos();
-                request.setAttribute("listaObjetos",listaObjetos);
-                view = request.getRequestDispatcher("/catalogoobjetos.jsp");
-                view.forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 break;
             case ("añadir"):
                 String nombre = request.getParameter("nombreobjeto");
@@ -92,11 +84,7 @@ public class CatalogoServlet extends HttpServlet {
                 boolean usado = false;
                 float weight = Float.parseFloat(peso);
                 objeto1.agregarObjeto(nombre,efecto, weight,usado);
-                ArrayList<Objetos> listaObjetos1 = null;
-                listaObjetos1 = objeto1.listarObjetos();
-                request.setAttribute("listaObjetos",listaObjetos1);
-                view = request.getRequestDispatcher("/catalogoobjetos.jsp");
-                view.forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 break;
 
         }
