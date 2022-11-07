@@ -162,4 +162,5 @@ public class HeroeDao extends BaseDao{
             e.printStackTrace();
         }
     }
+
 }

@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
+                                <div style="color:#6530bb;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit" >Añadir</button>
                                     <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
