@@ -134,10 +134,10 @@
                     <td class="text-center"><%= hechi.getNbase()%></td>
                     <td class="text-center"><%= hechi.getNivelAprendizaje()%></td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/HechizosServlet?accion=borrar&id=<%= hechi.getIdHechizos()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                            <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>

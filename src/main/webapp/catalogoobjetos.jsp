@@ -128,16 +128,16 @@
                     <td class="text-center"><%= obj.getPeso()%></td>
                     <td class="text-center"><%= obj.getUse()%></td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            href="<%=request.getContextPath()%>/CatalogoServlet?accion=editar&id=<%= obj.getIdObjetos()%>">
-                            <i class="bi bi-trash">Editar</i>
+                            <i class="fa-solid fa-pen"></i>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/CatalogoServlet?accion=borrar&id=<%= obj.getIdObjetos()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                            <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>
