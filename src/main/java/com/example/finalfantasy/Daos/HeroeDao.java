@@ -101,10 +101,9 @@ public class HeroeDao extends BaseDao{
 
     public void añadirHeroes(String nombreh,int edadh,String generoh, int nivelh, int ataqueh,String claseh,int parejah, int ExperienciaInicial) throws SQLException {
         String sql = "insert into heroes (Nombre,Edad,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
-        float exp = 0;
 
         try (Connection conn = this.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1,edadh);
             pstmt.setString(2,nombreh);
             pstmt.setString(3,generoh);
@@ -112,6 +111,7 @@ public class HeroeDao extends BaseDao{
             pstmt.setInt(5,ataqueh);
             pstmt.setString(6,claseh);
             pstmt.setInt(7,parejah);
+            pstmt.setFloat(8, ExperienciaInicial);
         } catch (SQLException e) {
             e.printStackTrace();
         }
