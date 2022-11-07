@@ -76,24 +76,24 @@ public class HeroesServlet extends HttpServlet {
                 String pareja = request.getParameter("parejah");
                 String experiencia = request.getParameter("experienciah");
                 try{
-                int edadh = Integer.parseInt(edad);
-                int nivelh = Integer.parseInt(nivel);
-                int ataqueh = Integer.parseInt(ataque);
-                int parejah = Integer.parseInt(pareja);
-                int experienciah = Integer.parseInt(experiencia);
-                Heroes newheroe = new Heroes();
-                newheroe.setNombre(nombre);
-                newheroe.setEdad(edadh);
-                newheroe.setGenero(genero);
-                newheroe.setNivel(nivelh);
-                newheroe.setAtaque(ataqueh);
-                newheroe.setClase(clase);
-                newheroe.setIdHeroes(parejah);
-                newheroe.setExperienciaInicial(experienciah);
-                heroeDao1.añadirHeroes(newheroe);
-                response.sendRedirect(request.getContextPath() + "/HeroesServlet?action=listar");
+                    int edadh = Integer.parseInt(edad);
+                    int nivelh = Integer.parseInt(nivel);
+                    int ataqueh = Integer.parseInt(ataque);
+                    int parejah = Integer.parseInt(pareja);
+                    int experienciah = Integer.parseInt(experiencia);
+                    Heroes newheroe = new Heroes();
+                    newheroe.setNombre(nombre);
+                    newheroe.setEdad(edadh);
+                    newheroe.setGenero(genero);
+                    newheroe.setNivel(nivelh);
+                    newheroe.setAtaque(ataqueh);
+                    newheroe.setClase(clase);
+                    newheroe.setIdPareja(parejah);
+                    newheroe.setExperienciaInicial(experienciah);
+                    heroeDao1.añadirHeroes(newheroe);
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
                 } catch (NumberFormatException e) {
-                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?action=añadir");
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

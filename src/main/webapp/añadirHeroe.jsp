@@ -149,13 +149,13 @@
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ParejaID" name="idheroe">
+                    <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ParejaID" name="parejah">
                     <label for="floatingInputGrid6">Pareja ID</label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid7" placeholder="ExperienciaInicial" name="experienciaincial">
+                    <input type="text" class="form-control" id="floatingInputGrid7" placeholder="ExperienciaInicial" name="experienciah">
                     <label for="floatingInputGrid6">Experiencia Inicial</label>
                   </div>
                 </div>

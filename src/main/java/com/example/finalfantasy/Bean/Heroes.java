@@ -10,6 +10,16 @@ public class Heroes {
     private int ataque;
     private Heroes pareja;
 
+    private int idPareja;
+
+    public int getIdPareja() {
+        return idPareja;
+    }
+
+    public void setIdPareja(int idPareja) {
+        this.idPareja = idPareja;
+    }
+
     private float experienciaInicial;
     private String clase;
 

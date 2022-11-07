@@ -110,7 +110,7 @@ public class HeroeDao extends BaseDao{
             pstmt.setInt(4,heroes.getNivel());
             pstmt.setInt(5,heroes.getAtaque());
             pstmt.setString(6,heroes.getClase());
-            pstmt.setInt(7, heroes.getIdHeroes());
+            pstmt.setInt(7, heroes.getIdPareja());
             pstmt.setFloat(8, heroes.getExperienciaInicial());
 
             pstmt.executeUpdate();
