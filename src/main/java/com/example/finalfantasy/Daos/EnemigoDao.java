@@ -1,13 +1,14 @@
 package com.example.finalfantasy.Daos;
 
 import com.example.finalfantasy.Bean.Enemigos;
+import com.example.finalfantasy.Bean.Heroes;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class EnemigoDao extends BaseDao{
+public class EnemigoDao extends BaseDao {
 
-    public ArrayList<Enemigos> listarEnemigos(){
+    public ArrayList<Enemigos> listarEnemigos() {
 
         ArrayList<Enemigos> listaEnemigos = new ArrayList<>();
         String sql = "select * from enemigos";
@@ -17,7 +18,7 @@ public class EnemigoDao extends BaseDao{
              ResultSet rs = stmt.executeQuery(sql);) {
             int clasene;
             String nombreclase;
-            while (rs.next()){
+            while (rs.next()) {
                 Enemigos enemigos = new Enemigos();
                 enemigos.setIdVillanos(rs.getInt("Idvillanos"));
                 clasene = (rs.getInt("Clase_idClase"));
@@ -48,9 +49,9 @@ public class EnemigoDao extends BaseDao{
     public void borrar(String villanoId) {
         String sql = "DELETE FROM enemigos WHERE idVillanos = ?";
 
-        try(Connection connection = this.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement(sql)){
-            pstmt.setString(1,villanoId);
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, villanoId);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -59,7 +60,7 @@ public class EnemigoDao extends BaseDao{
 
     }
 
-    public void anadirEnemigo(String nombre,int ataque,int experiencia, String objeto, float probabilidadObjeto, String genero,int clase_idClase) {
+    public void anadirEnemigo(String nombre, int ataque, int experiencia, String objeto, float probabilidadObjeto, String genero, int clase_idClase) {
         String sql = "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " +
                 "values (?,?,?,?,?,?,?,?)";
 
@@ -79,21 +80,22 @@ public class EnemigoDao extends BaseDao{
         }
     }
 
-    public int obtenerIdEnemigo(String nombre){
-        int idVillano=1;
-        String sql="select idVillano from enemigos where Nombre = ?";
-        try(Connection connection = this.getConnection();
-            PreparedStatement pstmt= connection.prepareStatement(sql);){
-            pstmt.setString(1,nombre);
+    public int obtenerIdEnemigo(String nombre) {
+        int idVillano = 1;
+        String sql = "select idVillano from enemigos where Nombre = ?";
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+            pstmt.setString(1, nombre);
 
-            try(ResultSet rs= pstmt.executeQuery()){
-                if(rs.next()){
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
                     idVillano = rs.getInt(1);
                 }
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return idVillano;
     }
 }
+

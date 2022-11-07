@@ -100,7 +100,7 @@ public class HeroeDao extends BaseDao{
 
 
     public void añadirHeroes(Heroes heroes) throws SQLException {
-        String sql = "insert into heroes (Nombre,Edad,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into heroes (Edad,Nombre,Genero,Nivel,Ataque,Clase,idPareja,ExperienciaInicial) values (?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

@@ -67,10 +67,10 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="<%=request.getContextPath()%>/HechizosServlet" class="active">Principal</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HechizosServlet">Principal</a></li>
                         <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
                         <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
-                        <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HechizosServlet" class="active">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
                     <a class='menu-trigger'>
@@ -91,7 +91,7 @@
             <div class="col-lg-5">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Descubre algunos de nuestros <em> Hechizos </em></h2>
+                    <h2>¡Añade todos los <em> Hechizos </em> que quieras!</h2>
                 </div>
             </div>
             <div class="page-content fade-in-up">

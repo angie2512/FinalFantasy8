@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <script src="https://kit.fontawesome.com/46baa8e193.js" crossorigin="anonymous"></script>
     <!--
 
     TemplateMo 577 Liberty Market
@@ -130,6 +132,8 @@
                     <th scope="col" class="text-center">Clase</th>
                     <th scope="col" class="text-center">Probabilidad Objeto</th>
                     <th scope="col" class="text-center">Genero</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -142,21 +146,27 @@
                     <td class="text-center"><%= enem.getObjeto()%></td>
                     <td class="text-center"><%= enem.getClase()%></td>
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
-                    <td class="text-center"><%= enem.getGenero()%></td>
-
-
+                    <% if(enem.getGenero().equals("F")) {%>
+                    <td class="text-center">Femenino</td>
+                    <%} else if (enem.getGenero().equals("M")){%>
+                    <td class="text-center">Masculino</td>
+                    <%} else if (enem.getGenero().equals("O")){ %>
+                    <td class="text-center">Otro</td>
+                    <%} else{ %>
+                    <td class="text-center">-</td>
+                    <%}%>
 
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
-                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
-                            <i class="bi bi-trash">Editar</i>
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
+                           href="<%=request.getContextPath()%>/EnemigosServlet<%= enem.getIdVillanos()%>">
+                            <i class="fa-solid fa-pen"></i></i>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a type="button" class="btn btn-danger"
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=borrar&id=<%= enem.getIdVillanos()%>">
-                            <i class="bi bi-trash">Borrar</i>
+                           href="<%=request.getContextPath()%>/EnemigosServlet?accion=borrar&id=<%=enem.getIdVillanos()%>">
+                            <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>
