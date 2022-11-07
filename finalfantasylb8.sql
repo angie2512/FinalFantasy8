@@ -109,7 +109,7 @@ CREATE TABLE `hechizos` (
   `Potencia` int NOT NULL,
   `accurate` int NOT NULL,
   `NivelAprendizaje` int DEFAULT NULL,
-  `Heroes_idHeroes` int NOT NULL,
+  `Heroes_idHeroes` int DEFAULT NULL,
   `Elementos_idElementos` int NOT NULL,
   `idHechizoBase` int DEFAULT NULL,
   PRIMARY KEY (`idHechizos`),
