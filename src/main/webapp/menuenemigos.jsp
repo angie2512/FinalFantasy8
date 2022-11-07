@@ -97,7 +97,7 @@
                     <h2>Descubre algunos de nuestros <em> Enemigos </em></h2>
                 </div>
             </div>
-            <div> class="col-lg-7">
+            <div class="col-lg-7">
                 <form id="search-form" name="gs" method="submit" role="search" action="#">
                     <div class="row">
                         <div class="col-lg-4">
