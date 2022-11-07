@@ -38,11 +38,7 @@ public class HeroesServlet extends HttpServlet {
                 try {
                     int spella = Integer.parseInt(spell);
                     heroeDao.eliminarHeroe(spella);
-                    ArrayList<Heroes> listaHeroes = null;
-                    listaHeroes = heroeDao.listarHeroes();
-                    request.setAttribute("ListaHeroes",listaHeroes);
-                    view = request.getRequestDispatcher("/menuHeroes.jsp");
-                    view.forward(request,response);
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet");
                 }catch (NumberFormatException e){
                     response.sendRedirect(request.getContextPath()+ "/HeroesServlet");
                 }
