@@ -154,7 +154,7 @@
                                 <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit" >Registrar</button>
-                                    <a href="<%=request.getContextPath()%>/HechizosServlet?accion=añadir" class="btn btn-secondary">Cancelar</a>
+                                    <a href="<%=request.getContextPath()%>/HechizosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
                                 </div>
                             </form>
                         </div>

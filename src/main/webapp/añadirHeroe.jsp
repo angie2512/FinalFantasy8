@@ -97,7 +97,7 @@
       <div class="col-md-6" style="margin: 0 auto">
         <div class="ibox" style="align-content: center">
           <div class="ibox-head">
-            <div class="ibox-title" style="color:white">Datos del Héroe</div>
+            <div class="ibox-title" style="color:white">¡Llena los datos de tu Héroe!</div>
           </div>
           <div class="ibox-body">
             <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=añadir">
@@ -164,7 +164,7 @@
               <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
               <div class="form-group">
                 <button class="btn btn-primary" type="submit" >Añadir</button>
-                <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                <a href="<%=request.getContextPath()%>/HeroesServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
               </div>
             </form>
           </div>

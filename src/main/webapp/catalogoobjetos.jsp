@@ -98,10 +98,11 @@
                     <h2>Descubre algunos de los <em> Objetos </em></h2>
                 </div>
             </div>
-            <div class="col-lg-7" style="text-align: center;">
+            <div class="col-lg-7" style="text-align: center">
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=añadirobjeto">
+                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propios objetos!</h4>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=añadirobjeto" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                             <i class="bi bi-pencil-square">Añadir Objeto</i>
                         </a>
                     </fieldset>
