@@ -1,6 +1,7 @@
 package com.example.finalfantasy.Daos;
 
 import com.example.finalfantasy.Bean.Enemigos;
+import com.example.finalfantasy.Bean.Heroes;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -77,6 +78,44 @@ public class EnemigoDao extends BaseDao{
             throw new RuntimeException(e);
         }
     }
+    public ArrayList<Enemigos> buscarPorNombre(String nombre){
+
+        String sql = "select * from enemigos where Nombre like ?";
+        String sql1 = "select * from enemigos";
+        ArrayList<Enemigos> listaFiltrada1 = new ArrayList<>();
+        int clasene;
+        String nombreclase;
+        try(Connection conn = this.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);){
+            pstmt.setString(1,"%"+nombre+"%");
+            try(ResultSet rs = pstmt.executeQuery();){
+                while(rs.next()){
+                    Enemigos enemigos = new Enemigos();
+                    enemigos.setIdVillanos(rs.getInt("Idvillanos"));
+                    clasene = (rs.getInt("Clase_idClase"));
+                    enemigos.setNombre(rs.getString("Nombre"));
+                    enemigos.setAtaque(rs.getInt("Ataque"));
+                    enemigos.setExperiencia(rs.getInt("Experiencia"));
+                    enemigos.setObjeto(rs.getString("Objeto"));
+                    enemigos.setGenero(rs.getString("Genero"));
+                    try (Connection connection2 = this.getConnection();
+                         Statement stmt2 = connection2.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                         ResultSet rs1 = stmt2.executeQuery(sql1);) {
+                        rs1.absolute(clasene);
+                        nombreclase = rs1.getString("Nombre");
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    enemigos.setClase(nombreclase);
+                    listaFiltrada1.add(enemigos);
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return listaFiltrada1;
+    }
+
 
     public int obtenerIdEnemigo(String nombre){
         int idVillano=1;

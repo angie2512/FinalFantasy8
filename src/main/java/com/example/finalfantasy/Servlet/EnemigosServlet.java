@@ -18,11 +18,17 @@ public class EnemigosServlet extends HttpServlet {
 
         EnemigoDao enemigoDao = new EnemigoDao();
         RequestDispatcher requestDispatcher;
+        RequestDispatcher view;
 
         String villanoId;
         Enemigos enemigos;
 
         switch (action) {
+            case ("añadirenemigo"):
+                view = request.getRequestDispatcher("/añadirEnemigo.jsp");
+                view.forward(request,response);
+                break;
+
             case "listar":
                 request.setAttribute("listaEnemigos", enemigoDao.listarEnemigos());
 
@@ -49,7 +55,7 @@ public class EnemigosServlet extends HttpServlet {
             case("buscar"):
                 String buscar = request.getParameter("keyword");
                 ArrayList<Enemigos> listaFiltrada =enemigoDao1.buscarPorNombre(buscar);
-                request.setAttribute("ListaEnemigos",listaFiltrada);
+                request.setAttribute("listaEnemigos",listaFiltrada);
                 view = request.getRequestDispatcher("/menuenemigos.jsp");
                 view.forward(request,response);
                 break;
