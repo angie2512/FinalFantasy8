@@ -6,7 +6,6 @@ public class Objetos {
     private String nombreObjeto;
     private String efecto;
     private boolean usado;
-
     private String use;
 
     public String getUse() {

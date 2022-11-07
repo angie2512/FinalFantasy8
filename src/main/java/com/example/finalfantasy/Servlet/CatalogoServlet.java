@@ -18,7 +18,7 @@ public class CatalogoServlet extends HttpServlet {
         RequestDispatcher view;
         ObjetosDao objeto = new ObjetosDao();
 
-        switch (accion){
+        switch(accion){
             case ("borrar"):
                 String spell = request.getParameter("id");
                 try {
@@ -60,7 +60,7 @@ public class CatalogoServlet extends HttpServlet {
                 String efecto = request.getParameter("efecto");
                 boolean usado = false;
                 float weight = Float.parseFloat(peso);
-                objeto1.agregarObjeto(nombre,efecto, weight,usado);
+                objeto1.agregarObjeto(peso, nombre, Float.parseFloat(efecto),usado);
                 ArrayList<Objetos> listaObjetos = null;
                 listaObjetos = objeto1.listarObjetos();
                 request.setAttribute("listaObjetos",listaObjetos);

@@ -100,15 +100,7 @@
 
                     </div>
 
-                    <div class="buttons">
-                        <div class="border-button">
-                            <a href="https://www.youtube.com/watch?v=Pm67u0wQFe4">Tráiler: Última Saga</a>
-                        </div>
-                        <div class="main-button">
-                            <a href="https://store.steampowered.com/agecheck/app/39210/?l=spanish" target="_blank">Compra Online</a>
 
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
