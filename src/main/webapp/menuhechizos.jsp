@@ -102,7 +102,7 @@
             <div class="col-lg-7" style="text-align: center;">
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo">
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/HechizosServlet?accion=añadirhechizo" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                             <i class="bi bi-pencil-square">Añadir Hechizo</i>
                         </a>
                     </fieldset>

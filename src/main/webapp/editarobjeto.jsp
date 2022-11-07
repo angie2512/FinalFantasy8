@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.finalfantasy.Bean.Objetos" %>
-<jsp:useBean id="objeto" type="com.example.finalfantasy.Bean.Objetos" scope="request"/>
 
 <%
   Objetos objeto = (Objetos) request.getAttribute("editar");
@@ -96,7 +95,7 @@
       <div class="col-lg-5">
         <div class="section-heading">
           <div class="line-dec"></div>
-          <h2>Descubre algunos de nuestros <em> Objetos </em></h2>
+          <h2>Edita un<em> Objeto </em></h2>
         </div>
       </div>
     </div>
@@ -111,14 +110,28 @@
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto">
-                    <label for="floatingInputGrid1">Nombre del Ojeto</label>
+                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idobjeto" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid1">Id Objeto:</label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="peso" name="pesoobjeto">
-                    <label for="floatingInputGrid2">Peso</label>
+                    <input class="form-control" type="text" id="floatingInputGrid2" placeholder="nombreobjeto" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid2">Nombre: </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto">
+                    <label for="floatingInputGrid1">Peso: </label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid2">¿Es Usado?: </label>
                   </div>
                 </div>
               </div>
@@ -126,13 +139,13 @@
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
                     <input type="text" class="form-control" id="floatingInputGrid3" placeholder="efecto" name="efecto">
-                    <label for="floatingInputGrid3">Efecto/Uso</label>
+                    <label for="floatingInputGrid3">Efecto/Uso :</label>
                   </div>
                 </div>
               </div>
               <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
               <div class="form-group">
-                <button class="btn btn-primary" type="submit" >Añadir</button>
+                <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
                 <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
               </div>
             </form>
