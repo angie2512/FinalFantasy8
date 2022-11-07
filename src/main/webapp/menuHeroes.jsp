@@ -163,11 +163,11 @@
                     <% if(heroes.getPareja().getNombre()!=null) {%>
                     <td class="text-center"><%=heroes.getPareja().getNombre()%></td>
                     <%} else {%>
-                    <td class="text-center" >--Sin pareja--</td><%}%>
+                    <td class="text-center" >--Sin pareja--</td>
+                    <%}%>
                     <td class="text-center"><%=heroes.getExperienciaInicial()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
-                           onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
                            href="<%=request.getContextPath()%>/HeroesServlet<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-pen"></i></i>
                         </a>
@@ -175,7 +175,7 @@
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id"<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrar&id=<%=heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>

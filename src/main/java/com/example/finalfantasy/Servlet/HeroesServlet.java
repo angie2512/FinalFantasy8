@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class HeroesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action") == null?"listar":request.getParameter("action");
+        String action = request.getParameter("accion") == null?"listar":request.getParameter("accion");
         HeroeDao heroeDao = new HeroeDao();
         RequestDispatcher view;
 

@@ -119,12 +119,14 @@ public class HeroeDao extends BaseDao{
 
     public void eliminarHeroe (int idHeroe){
 
-        String sql = "delete from heroes where idHeroes = ?";
-        String sql1 = "delete from objetos_has_heroes where Heroes_idHeroes = ?";
+        String sql = "UPDATE hechizos SET Heroes_idHeroes = null WHERE Heroes_idHeroes = ?";
+        String sql1 = "UPDATE heroes SET idPareja = null WHERE idPareja = ?";
+        String sql2 = "delete from objetos_has_heroes where Heroes_idHeroes = ?";
+        String sql3 = "delete from heroes where idHeroes = ?";
 
 
-        try (Connection conne = this.getConnection();
-             PreparedStatement pstmta = conne.prepareStatement(sql1);) {
+        try (Connection conna = this.getConnection();
+             PreparedStatement pstmta = conna.prepareStatement(sql)) {
 
             pstmta.setInt(1,idHeroe);
             pstmta.executeUpdate();
@@ -133,10 +135,28 @@ public class HeroeDao extends BaseDao{
             e.printStackTrace();
         }
         try (Connection connb = this.getConnection();
-             PreparedStatement pstmtb = connb.prepareStatement(sql);) {
+             PreparedStatement pstmtb = connb.prepareStatement(sql1)) {
 
             pstmtb.setInt(1,idHeroe);
             pstmtb.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try (Connection connc = this.getConnection();
+             PreparedStatement pstmtc = connc.prepareStatement(sql2)) {
+
+            pstmtc.setInt(1,idHeroe);
+            pstmtc.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try (Connection connd = this.getConnection();
+             PreparedStatement pstmtd = connd.prepareStatement(sql3)) {
+
+            pstmtd.setInt(1,idHeroe);
+            pstmtd.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

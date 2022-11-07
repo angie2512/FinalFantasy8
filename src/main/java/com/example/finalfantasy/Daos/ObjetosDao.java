@@ -32,32 +32,28 @@ public class ObjetosDao extends BaseDao{
         }
         return listaobjetos;
     }
-    public ArrayList<Objetos> listaObjetos() throws SQLException{
 
-        ArrayList<Objetos> listaObjetos = new ArrayList<>();
-        String sql = "select * from objetos";
-        try (Connection connection = this.getConnection();
-             Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);) {
-            int ele;
-            while (rs.next()) {
-                Objetos objeto = new Objetos();
-                objeto.setIdObjetos(rs.getInt("idObjetos"));
-                objeto.setNombreObjeto(rs.getString("NombreObjeto"));
-                objeto.setEfecto(rs.getString("Efecto"));
-                ele = rs.getInt("Usado");
-                if (ele==1){
-                    objeto.setUsado(true);
-                } else if (ele==0){
-                    objeto.setUsado(false);
+    public Objetos obtenerObjeto(int id) {
+        Objetos ob = null;
+        String sql = "SELECT * FROM objetos WHERE idObjetos = ?";
+        try (Connection conn5 = this.getConnection();
+             PreparedStatement pstmt5 = conn5.prepareStatement(sql)){
+            pstmt5.setInt(1, id);
+            try (ResultSet rs = pstmt5.executeQuery()) {
+                if (rs.next()) {
+                    ob = new Objetos();
+                    ob.setIdObjetos(id);
+                    ob.setNombreObjeto(rs.getString("NombreObjeto"));
+                    ob.setPeso(rs.getFloat("Peso"));
+                    ob.setEfecto(rs.getString("Efecto"));
+                    ob.setUsado(rs.getBoolean("Usado"));
                 }
-                objeto.setPeso(rs.getFloat("Peso"));
-                listaObjetos.add(objeto);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        return listaObjetos;
+
+        return ob;
     }
 
     public void agregarObjeto(String nombre,String efecti, float peso, boolean usado) {
@@ -78,7 +74,7 @@ public class ObjetosDao extends BaseDao{
     }
     public void editarObjetoSi(String efecto, int id) {
 
-        String sql = "UPDATE Objetos SET Efecto = ? WHERE idObjetos = ?";
+        String sql = "UPDATE objetos SET Efecto = ? WHERE idObjetos = ?";
 
         try (Connection conn1 = this.getConnection();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
@@ -92,7 +88,7 @@ public class ObjetosDao extends BaseDao{
     }
     public void editarObjetoNo(String efecto, float peso, int id) {
 
-        String sql = "UPDATE Objetos SET Efecto = ?, Peso = ? WHERE idObjetos = ?";
+        String sql = "UPDATE objetos SET Efecto = ?, Peso = ? WHERE idObjetos = ?";
 
         try (Connection conn1 = this.getConnection();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
