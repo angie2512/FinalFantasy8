@@ -104,6 +104,7 @@
                     <h2>Lista de <em> Héroes </em></h2>
                 </div>
             </div>
+
             <div class="col-lg-7" style="text-align: center">
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
@@ -114,6 +115,7 @@
                     </fieldset>
                 </div>
             </div>
+
             <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/HeroesServlet?accion=buscar">
                 <div class="col-lg-4">
                     <fieldset>
@@ -126,6 +128,7 @@
                     </fieldset>
                 </div>
             </form>
+
             <table class="table table-dark table-hover">
                 <thead>
                 <tr>

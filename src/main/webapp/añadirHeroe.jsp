@@ -65,8 +65,8 @@
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li><a href="<%=request.getContextPath()%>/IndexServlet" >Principal</a></li>
-            <li><a href="<%=request.getContextPath()%>/HeroesServlet"class="active">Héroes</a></li>
+            <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Principal</a></li>
+            <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
             <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
             <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
             <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
@@ -89,7 +89,7 @@
       <div class="col-lg-5">
         <div class="section-heading">
           <div class="line-dec"></div>
-          <h2>¡Añade todos los <em> Héroes </em> que quieras!</h2>
+          <h2>Lista de <em> Héroes </em></h2>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
       <div class="col-md-6" style="margin: 0 auto">
         <div class="ibox" style="align-content: center">
           <div class="ibox-head">
-            <div class="ibox-title" style="color:white">¡Llena los datos de tu Héroe!</div>
+            <div class="ibox-title" style="color:white">Datos del Héroe</div>
           </div>
           <div class="ibox-body">
             <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=añadir">
@@ -110,53 +110,19 @@
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="edad" name="edadheroe">
-                    <label for="floatingInputGrid1">Edad</label>
+                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="edad" name="edadheroe">
+                    <label for="floatingInputGrid2">Edad</label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating">
                     <select class="form-select" id="floatingSelectGrid1" name="generoheroe">
-                      <option selected>Elige</option>
+                      <option selected>Género</option>
                       <option value="1">M</option>
                       <option value="2">F</option>
                       <option value="3">O</option>
                     </select>
-                    <label for="floatingSelectGrid1">Genero</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row g-2">
-                <div class="col-md">
-                  <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nivel" name="nivelheroe">
-                    <label for="floatingInputGrid3">Nivel</label>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Ataque" name="ataqueheroe">
-                    <label for="floatingInputGrid4">Ataque</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row g-2">
-                <div class="col-md">
-                  <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid5" placeholder="Clase" name="claseheroe">
-                    <label for="floatingInputGrid4">Clase</label>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ParejaID" name="idheroe">
-                    <label for="floatingInputGrid6">Pareja ID</label>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid7" placeholder="ExperienciaInicial" name="experienciaincial">
-                    <label for="floatingInputGrid6">Experiencia Inicial</label>
+                    <label for="floatingSelectGrid1">Geénero</label>
                   </div>
                 </div>
               </div>
@@ -164,7 +130,7 @@
               <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
               <div class="form-group">
                 <button class="btn btn-primary" type="submit" >Añadir</button>
-                <a href="<%=request.getContextPath()%>/HeroesServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
               </div>
             </form>
           </div>
