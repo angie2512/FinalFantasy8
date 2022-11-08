@@ -102,7 +102,7 @@
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
                         <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propios objetos!</h4>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=añadirobjeto" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=addd" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                             <i class="bi bi-pencil-square">Añadir Objeto</i>
                         </a>
                     </fieldset>
@@ -149,8 +149,8 @@
     </div>
 
 
-
-<!-- Scripts -->
+</body>
+<%-- Scripts --%>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -162,5 +162,5 @@
 <script src="assets/js/popup.js"></script>
 <script src="assets/js/custom.js"></script>
 
-</body>
+
 </html>

@@ -42,7 +42,7 @@ public class CatalogoServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
                 }
                 break;
-            case ("añadirobjeto"):
+            case ("addd"):
                 view = request.getRequestDispatcher("/añadirobjeto.jsp");
                 view.forward(request,response);
                 break;
@@ -131,7 +131,7 @@ public class CatalogoServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/CatalogoServlet?");
                 } else {
                     request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
-                    response.sendRedirect(request.getContextPath()+"/CatalogoServlet?");
+                    response.sendRedirect(request.getContextPath()+"/CatalogoServlet?accion=addd");
                 }
                 break;
         }

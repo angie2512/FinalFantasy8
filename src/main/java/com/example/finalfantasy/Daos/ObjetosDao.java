@@ -34,19 +34,23 @@ public class ObjetosDao extends BaseDao{
     }
     public int obRepetido(String nombre) {
         int repetido = 0;
-        String sql = "SELECT * FROM objetos WHERE NombreObjeto like ?";
-        try (Connection conn6 = this.getConnection();
-             PreparedStatement pstmt6 = conn6.prepareStatement(sql)) {
-            pstmt6.setString(1, "%"+nombre+"%");
-            try (ResultSet rs = pstmt6.executeQuery()) {
-                if (rs != null) {
-                    repetido = 1;
-                } else {
-                    repetido = 0;
+        nombre = nombre.toLowerCase();
+        String nombreobjeto = null;
+        String sql = "SELECT * FROM objetos";
+        try (Connection conn = this.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql);){
+            while (rs.next()) {
+                nombreobjeto=rs.getString("NombreObjeto");
+                nombreobjeto = nombreobjeto.toLowerCase();
+                if(nombre.equals(nombreobjeto)){
+                    repetido=1;
+                }else{
+                    repetido=0;
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return repetido;
     }
