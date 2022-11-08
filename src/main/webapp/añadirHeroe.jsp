@@ -99,6 +99,14 @@
           <div class="ibox-head">
             <div class="ibox-title" style="color:white">¡Llena los datos de tu Héroe!</div>
           </div>
+          <% if(session.getAttribute("infotodo")!= null) {%>
+          <div class="row g-2">
+            <div class="alert alert-danger" role="alert">
+              <%=session.getAttribute("infotodo")%>
+            </div>
+          </div>
+          <%session.removeAttribute("infotodo");%>
+          <%}%>
           <div class="ibox-body">
             <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=añadir">
               <div class="row g-2">

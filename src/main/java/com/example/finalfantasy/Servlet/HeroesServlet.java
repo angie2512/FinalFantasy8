@@ -42,7 +42,7 @@ public class HeroesServlet extends HttpServlet {
                 view = request.getRequestDispatcher("menuHeroes.jsp");
                 view.forward(request, response);
                 break;
-            case ("añadirheroe"):
+            case ("add"):
                 view = request.getRequestDispatcher("/añadirHeroe.jsp");
                 view.forward(request,response);
                 break;
@@ -116,7 +116,8 @@ public class HeroesServlet extends HttpServlet {
                     heroeDao1.añadirHeroes(newheroe);
                     response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
                 } catch (NumberFormatException e) {
-                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
+                    request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?accion=add");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
