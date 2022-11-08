@@ -14,16 +14,14 @@ import java.util.ArrayList;
 public class EnemigosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action") == null ? "listar" : request.getParameter("action");
-
-        EnemigoDao enemigoDao = new EnemigoDao();
-        RequestDispatcher requestDispatcher;
+        String accion = request.getParameter("accion") == null ? "listar" : request.getParameter("accion");
         RequestDispatcher view;
+        EnemigoDao enemigoDao = new EnemigoDao();
 
-        String villanoId;
-        Enemigos enemigos;
+        RequestDispatcher requestDispatcher;
 
-        switch (action) {
+
+        switch (accion) {
             case ("añadirenemigo"):
                 view = request.getRequestDispatcher("/añadirEnemigo.jsp");
                 view.forward(request,response);
@@ -31,16 +29,22 @@ public class EnemigosServlet extends HttpServlet {
 
             case "listar":
                 request.setAttribute("listaEnemigos", enemigoDao.listarEnemigos());
-
                 requestDispatcher = request.getRequestDispatcher("menuenemigos.jsp");
                 requestDispatcher.forward(request, response);
                 break;
 
             case "borrar":
-                villanoId = request.getParameter("id");
+                String spell = request.getParameter("id");
+                try{
+                    int spelli = Integer.parseInt(spell);
+                    enemigoDao.borrar(spelli);
+                    response.sendRedirect(request.getContextPath()+"/EnemigosServlet");
 
-                response.sendRedirect(request.getContextPath() + "/EnemigoServlet");
+                }catch (NumberFormatException e){
+                    response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
+                }
                 break;
+
         }
     }
 
@@ -60,7 +64,7 @@ public class EnemigosServlet extends HttpServlet {
                 view.forward(request,response);
                 break;
 
-            case ("añadir"):
+            case ("nuevoEnemigo"):
                 String nombre = request.getParameter("nombreEnemigo");
                 String ataque = request.getParameter("ataqueEnemigo");
                 String experiencia = request.getParameter("experienciaEnemigo");
@@ -69,19 +73,28 @@ public class EnemigosServlet extends HttpServlet {
                 String genero = request.getParameter("generoEnemigo");
                 String idClase = request.getParameter("idClaseEnemigo");
 
+                try{
+                    int ataque1 = Integer.parseInt(ataque);
+                    int experiencia1 = Integer.parseInt(experiencia);
+                    float probabilidadObj1 = Float.parseFloat(probabilidadObjeto);
+                    int claseId = Integer.parseInt(idClase);
+                    Enemigos nuevoenemigo = new Enemigos();
 
-                int ataque1 = Integer.parseInt(ataque);
-                int experiencia0 = Integer.parseInt(experiencia);
-                float probabilidadObj = Float.parseFloat(probabilidadObjeto);
-                int idClase1 = Integer.parseInt(idClase);
+                    nuevoenemigo.setNombre(nombre);
+                    nuevoenemigo.setAtaque(ataque1);
+                    nuevoenemigo.setExperiencia(experiencia1);
+                    nuevoenemigo.setObjeto(objeto);
+                    nuevoenemigo.setProbabilidadObjeto(probabilidadObj1);
+                    nuevoenemigo.setGenero(genero);
+                    nuevoenemigo.setCase_idClase(claseId);
+                    enemigoDao1.anadirEnemigo(nuevoenemigo);
+                    response.sendRedirect(request.getContextPath()+ "EnemigosServlet?");
 
-                enemigoDao1.anadirEnemigo(nombre,ataque1,experiencia0,objeto,probabilidadObj,genero,idClase1);
-
-                ArrayList<Enemigos> listaEnemigos = null;
-
-                request.setAttribute("listaEnemigos",listaEnemigos);
-                view = request.getRequestDispatcher("/menuenemigos.jsp");
-                view.forward(request,response);
+                } catch (NumberFormatException e) {
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
 
 
