@@ -171,7 +171,7 @@
                     <td class="text-center"><%=heroes.getExperienciaInicial()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
-                           href="<%=request.getContextPath()%>/HeroesServlet<%= heroes.getIdHeroes()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=editar&id=<%= heroes.getIdHeroes()%>">
                             <i class="fa-solid fa-pen"></i></i>
                         </a>
                     </td>

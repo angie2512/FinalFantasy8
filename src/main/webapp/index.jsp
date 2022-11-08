@@ -92,7 +92,7 @@
                                 <p></p>
                                 <h3>¡Todo lo que debes saber del juego!</h3>
                                 <p></p>
-                                <h4>Niveles, Experiencia, Debilidades, Fortalezas Potencia &amp; más.</h4>
+                                <h4>Niveles, Experiencia, Debilidades, Fortalezas, Potencia &amp; más.</h4>
                                 <p>Tendrás la oportunidad de elegir si quieres ser héroe o villano, en esta wiki podrás descubrir detalles sobre la clase, la experiencia, el ataque, los objetos guardados y los hechizos de tu personaje</p>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
+clase
 <script src="assets/js/isotope.min.js"></script>
 <script src="assets/js/owl-carousel.js"></script>
 

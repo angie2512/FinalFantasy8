@@ -1,6 +1,8 @@
 package com.example.finalfantasy.Daos;
 
 import com.example.finalfantasy.Bean.Heroes;
+import com.example.finalfantasy.Bean.Objetos;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -96,6 +98,35 @@ public class HeroeDao extends BaseDao{
             e.printStackTrace();
         }
         return listaFiltrada;
+    }
+
+    public Heroes obtenerHeroe(int id) {
+        Heroes he = null;
+        String sql = "SELECT * FROM heroes WHERE idHeroes = ?";
+        try (Connection connex = this.getConnection();
+             PreparedStatement pstmth = connex.prepareStatement(sql)){
+            pstmth.setInt(1, id);
+            try (ResultSet rs = pstmth.executeQuery()) {
+                if (rs.next()) {
+                    he = new Heroes();
+                    he.setIdHeroes(id);
+                    he.setNombre(rs.getString("Nombre"));
+                    he.setEdad(rs.getInt("Edad"));
+                    he.setGenero(rs.getString("Genero"));
+                    he.setNivel(rs.getInt("Nivel"));
+                    he.setAtaque(rs.getInt("Ataque"));
+                    he.setClase(rs.getString("Clase"));
+                    Heroes pareja = new Heroes();
+                    he.setPareja(pareja);
+                    pareja.setIdHeroes(rs.getInt("idPareja"));
+                    pareja.setNombre(mostrarNombreHeroe(pareja.getIdHeroes()));
+                    he.setExperienciaInicial(rs.getFloat("Experienciainicial"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return he;
     }
 
 
