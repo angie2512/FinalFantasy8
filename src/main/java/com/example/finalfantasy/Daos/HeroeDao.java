@@ -112,7 +112,6 @@ public class HeroeDao extends BaseDao{
             pstmt.setString(6,heroes.getClase());
             pstmt.setInt(7, heroes.getIdPareja());
             pstmt.setFloat(8, heroes.getExperienciaInicial());
-
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
