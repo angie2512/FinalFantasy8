@@ -70,7 +70,7 @@
                     <ul class="nav">
                         <li><a href="<%=request.getContextPath()%>/IndexServlet">Principal</a></li>
                         <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
-                        <li><a href="<%=request.getContextPath()%>/CatalogoServlet" class="active">Enemigos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet" class="active">Enemigos</a></li>
                         <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
