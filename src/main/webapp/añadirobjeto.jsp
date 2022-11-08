@@ -113,7 +113,7 @@
                                     <div class="col-md">
                                         <div class="form-floating" style="margin-bottom: 5px;">
                                             <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto" required>
-                                            <label for="floatingInputGrid1">Nombre del Ojeto</label>
+                                            <label for="floatingInputGrid1">Nombre del Objeto</label>
                                         </div>
                                         <% if(session.getAttribute("infonombre") != null) {%>
                                         <div class="alert alert-danger" role="alert">

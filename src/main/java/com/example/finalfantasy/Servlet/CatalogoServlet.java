@@ -128,10 +128,10 @@ public class CatalogoServlet extends HttpServlet {
                 }
                 if (name==1 & w==1 & efect==1){
                     objeto1.agregarObjeto(nombre,efecto, weight,usado);
-                    response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet?");
                 } else {
                     request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
-                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet?accion=añadirobjeto");
+                    response.sendRedirect(request.getContextPath()+"/CatalogoServlet?");
                 }
                 break;
         }
