@@ -45,6 +45,7 @@ public class ObjetosDao extends BaseDao{
                 nombreobjeto = nombreobjeto.toLowerCase();
                 if(nombre.equals(nombreobjeto)){
                     repetido=1;
+                    break;
                 }else{
                     repetido=0;
                 }
