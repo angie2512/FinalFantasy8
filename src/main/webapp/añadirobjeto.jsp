@@ -100,27 +100,53 @@
                             <div class="ibox-title">Datos de Objeto</div>
                         </div>
                         <div class="ibox-body">
-                            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=añadir">
+                            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=add">
+                                <div class="row g-2">
+                                    <% if(session.getAttribute("infotodo")!= null) {%>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%=session.getAttribute("infotodo")%>
+                                    </div>
+                                    <%session.removeAttribute("infotodo");%>
+                                    <%}%>
+                                </div>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating" style="margin-bottom: 5px;">
-                                            <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto">
+                                            <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreobjeto" required>
                                             <label for="floatingInputGrid1">Nombre del Ojeto</label>
                                         </div>
+                                        <% if(session.getAttribute("infonombre") != null) {%>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%=session.getAttribute("infonombre")%>
+                                        </div>
+                                        <%session.removeAttribute("infonombre");%>
+                                        <% }%>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-floating" style="margin-bottom: 5px;">
-                                            <input type="text" class="form-control" id="floatingInputGrid2" placeholder="peso" name="pesoobjeto">
+                                            <input type="text" class="form-control" id="floatingInputGrid2" placeholder="peso" name="pesoobjeto" required>
                                             <label for="floatingInputGrid2">Peso</label>
                                         </div>
+                                        <% if(session.getAttribute("infopeso") != null) {%>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%=session.getAttribute("infopeso")%>
+                                        </div>
+                                        <%session.removeAttribute("infopeso"); %>
+                                        <% }%>
                                     </div>
                                 </div>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating" style="margin-bottom: 5px;">
-                                            <input type="text" class="form-control" id="floatingInputGrid3" placeholder="efecto" name="efecto">
+                                            <input type="text" class="form-control" id="floatingInputGrid3" placeholder="efecto" name="efecto" required>
                                             <label for="floatingInputGrid3">Efecto/Uso</label>
                                         </div>
+                                        <% if(session.getAttribute("infoefecto") != null) {%>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%=session.getAttribute("infoefecto")%>
+                                        </div>
+                                        <%session.removeAttribute("infoefecto"); %>
+                                        <% }%>
                                     </div>
                                 </div>
                                 <div style="color:#6530bb;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>

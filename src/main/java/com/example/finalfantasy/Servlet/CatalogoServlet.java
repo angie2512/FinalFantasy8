@@ -77,16 +77,63 @@ public class CatalogoServlet extends HttpServlet {
                 }
                 response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
                 break;
-            case ("añadir"):
+            case ("add"):
                 String nombre = request.getParameter("nombreobjeto");
                 String peso = request.getParameter("pesoobjeto");
                 String efecto = request.getParameter("efecto");
                 boolean usado = false;
-                float weight = Float.parseFloat(peso);
-                objeto1.agregarObjeto(nombre,efecto, weight,usado);
-                response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
+                int name = 0;
+                int w = 0;
+                int efect = 0;
+                float weight = 0;
+                int x2 = 0;
+                if (nombre!=null){
+                    x2 = objeto1.obRepetido(nombre);
+                    if (x2==0){
+                        name = 1;
+                    }
+                    else {
+                        name = 0;
+                        request.getSession().setAttribute("infonombre","Objeto ya registrado");
+                    }
+                } else {
+                    name = 2;
+                    request.getSession().setAttribute("infonombre","Campo Obligatorio");
+                }
+                if (peso!=null){
+                    try {
+                        weight = Float.parseFloat(peso);
+                        w = 4;
+                    }catch (NumberFormatException e){
+                        w = 2;
+                        request.getSession().setAttribute("infopeso","El peso debe ser un número decimal positivo");
+                    }
+                    if (w==4){
+                        if (weight>0){
+                            w=1;
+                        } else {
+                            w = 0;
+                            request.getSession().setAttribute("infopeso","El peso debe ser positivo");
+                        }
+                    }
+                } else {
+                    w = 3;
+                    request.getSession().setAttribute("infopeso","Campo Obligatorio");
+                }
+                if (efecto!=null){
+                    efect = 1;
+                } else {
+                    efect = 0;
+                    request.getSession().setAttribute("infoefecto","Campo Obligatorio");
+                }
+                if (name==1 & w==1 & efect==1){
+                    objeto1.agregarObjeto(nombre,efecto, weight,usado);
+                    response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
+                } else {
+                    request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet?accion=añadirobjeto");
+                }
                 break;
-
         }
     }
 

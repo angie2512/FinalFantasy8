@@ -32,6 +32,24 @@ public class ObjetosDao extends BaseDao{
         }
         return listaobjetos;
     }
+    public int obRepetido(String nombre) {
+        int repetido = 0;
+        String sql = "SELECT * FROM objetos WHERE NombreObjeto like ?";
+        try (Connection conn6 = this.getConnection();
+             PreparedStatement pstmt6 = conn6.prepareStatement(sql)) {
+            pstmt6.setString(1, "%"+nombre+"%");
+            try (ResultSet rs = pstmt6.executeQuery()) {
+                if (rs != null) {
+                    repetido = 1;
+                } else {
+                    repetido = 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return repetido;
+    }
 
     public Objetos obtenerObjeto(int id) {
         Objetos ob = null;
@@ -57,7 +75,6 @@ public class ObjetosDao extends BaseDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return ob;
     }
 
