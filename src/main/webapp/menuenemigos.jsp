@@ -1,5 +1,6 @@
 <%@ page import="com.example.finalfantasy.Bean.Enemigos" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%--
   Created by IntelliJ IDEA.
   User: Labtel
   Date: 3/11/2022
@@ -7,6 +8,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <%
     ArrayList<Enemigos> listaEnemigos = (ArrayList<Enemigos>) request.getAttribute("listaEnemigos");
 %>
@@ -75,6 +78,7 @@
                         <li><a href="<%=request.getContextPath()%>/EnemigosServlet" class="active">Enemigos</a></li>
                         <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
+
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -101,13 +105,26 @@
             <div class="col-lg-7" style="text-align: center">
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
-                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propio<br>Enemigo!</h4>
+                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propio Enemigo!</h4>
                         <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=añadirenemigo" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
-                            <i class="bi bi-pencil-square">Añadir<br>Enemigo</i>
+                            <i class="bi bi-pencil-square">Añadir Enemigo</i>
                         </a>
                     </fieldset>
                 </div>
             </div>
+
+
+
+            <div class="col-lg-7" style="text-align: center">
+                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+                    <fieldset>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/ClaseServlet?accion=listar" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                            <i class="bi bi-pencil-square">Ver Clases</i>
+                        </a>
+                    </fieldset>
+                </div>
+            </div>
+
 
             <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/EnemigosServlet?accion=buscar">
                 <div class="col-lg-4">
@@ -132,6 +149,8 @@
                     <th scope="col" class="text-center">Objeto</th>
                     <th scope="col" class="text-center">Probabilidad Objeto</th>
                     <th scope="col" class="text-center">Genero</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -143,16 +162,7 @@
                     <td class="text-center"><%= enem.getExperiencia()%></td>
                     <td class="text-center"><%= enem.getObjeto()%></td>
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
-                    <% if(enem.getGenero().equals("F")) {%>
-                    <td class="text-center">F</td>
-                    <%} else if (enem.getGenero().equals("M")){%>
-                       <td class="text-center">M</td>
-                       <%} else if (enem.getGenero().equals("O")) { %>
-                          <td class="text-center">O</td>
-                       <%} else { %>
-                    <td class="text-center">-</td>
-                    <%}%>
-
+                    <td class="text-center"><%= enem.getGenero()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            href="<%=request.getContextPath()%>/EnemigosServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
