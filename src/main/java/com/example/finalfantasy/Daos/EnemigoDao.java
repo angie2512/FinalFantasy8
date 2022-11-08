@@ -46,33 +46,32 @@ public class EnemigoDao extends BaseDao{
         return listaEnemigos;
     }
 
-    public void borrar(String villanoId) {
-        String sql = "DELETE FROM enemigos WHERE idVillanos = ?";
+    public void borrar(int villanoId) {
 
-        try(Connection connection = this.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement(sql)){
-            pstmt.setString(1,villanoId);
-            pstmt.executeUpdate();
+        String sql = "delete from enemigos where idVillanos = ?";
+        try (Connection conn6 = this.getConnection();
+             PreparedStatement pstmt6 = conn6.prepareStatement(sql);) {
+
+            pstmt6.setInt(1,villanoId);
+            pstmt6.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
     }
 
-    public void anadirEnemigo(String nombre,int ataque,int experiencia, String objeto, float probabilidadObjeto, String genero,int clase_idClase) {
-        String sql = "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " +
-                "values (?,?,?,?,?,?,?,?)";
+    public void anadirEnemigo(Enemigos enemigos) throws SQLException{
+        String sql = "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " + "values (?,?,?,?,?,?,?,?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setString(1, nombre);
-            pstmt.setInt(2, ataque);
-            pstmt.setInt(3, experiencia);
-            pstmt.setString(4, objeto);
-            pstmt.setFloat(5, probabilidadObjeto);
-            pstmt.setString(6, genero);
-            pstmt.setInt(7, clase_idClase);
+            pstmt.setString(1, enemigos.getNombre());
+            pstmt.setInt(2, enemigos.getAtaque());
+            pstmt.setInt(3, enemigos.getExperiencia());
+            pstmt.setString(4, enemigos.getObjeto());
+            pstmt.setFloat(5, enemigos.getProbabilidadObjeto());
+            pstmt.setString(6, enemigos.getGenero());
+            pstmt.setInt(7, enemigos.getCase_idClase());
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
