@@ -1,6 +1,7 @@
 package com.example.finalfantasy.Servlet;
 
 import com.example.finalfantasy.Bean.Enemigos;
+import com.example.finalfantasy.Bean.Heroes;
 import com.example.finalfantasy.Daos.EnemigoDao;
 
 import jakarta.servlet.*;
@@ -22,6 +23,18 @@ public class EnemigosServlet extends HttpServlet {
 
 
         switch (accion) {
+            case ("editar"):
+                String id= request.getParameter("id");
+                int ene = Integer.parseInt(id);
+                Enemigos en = enemigoDao.obtenerEnemigo(ene);
+                if(en == null){
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet");
+                }else{
+                    request.setAttribute("editar",en);
+                    view = request.getRequestDispatcher("editarEnemigo.jsp");
+                    view.forward(request, response);
+                }
+                break;
             case ("añadirenemigo"):
                 view = request.getRequestDispatcher("/añadirEnemigo.jsp");
                 view.forward(request,response);

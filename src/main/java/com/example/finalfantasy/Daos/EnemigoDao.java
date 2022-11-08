@@ -117,22 +117,28 @@ public class EnemigoDao extends BaseDao{
         return listaFiltrada1;
     }
 
+    public Enemigos obtenerEnemigo(int id) {
+        Enemigos en = null;
+        String sql = "SELECT * FROM enemigos WHERE idVillanos = ?";
+        try (Connection connex = this.getConnection();
+             PreparedStatement pstmth = connex.prepareStatement(sql)){
+            pstmth.setInt(1, id);
+            try (ResultSet rs = pstmth.executeQuery()) {
+                if (rs.next()) {
+                    en = new Enemigos();
+                    en.setIdVillanos(id);
+                    en.setNombre(rs.getString("Nombre"));
+                    en.setAtaque(rs.getInt("Ataque"));
+                    en.setExperiencia(rs.getInt("Experiencia"));
+                    en.setObjeto(rs.getString("Objeto"));
+                    en.setProbabilidadObjeto(rs.getFloat("ProbabilidadObjeto"));
+                    en.setCase_idClase(rs.getInt("ClaseId"));
 
-    public int obtenerIdEnemigo(String nombre){
-        int idVillano=1;
-        String sql="select idVillano from enemigos where Nombre = ?";
-        try(Connection connection = this.getConnection();
-            PreparedStatement pstmt= connection.prepareStatement(sql);){
-            pstmt.setString(1,nombre);
-
-            try(ResultSet rs= pstmt.executeQuery()){
-                if(rs.next()){
-                    idVillano = rs.getInt(1);
                 }
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return idVillano;
+        return en;
     }
 }
