@@ -83,7 +83,7 @@
             <div class="col-lg-6 align-self-center">
                 <div class="header-text">
 
-                    <div class="card"  style="width: 40.5rem; height: 20rem; margin-top: 0rem;background-color: #00000090;">
+                    <div class="card"  style="width: 40.5rem;height: 20rem;margin-top: 0rem;background-color: #00000090;bottom: 30px;">
                         <div class="container">
                             <p>
                             <p></p>

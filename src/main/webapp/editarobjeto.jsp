@@ -141,13 +141,13 @@
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Nombre" name="peso">
+                    <input type="text" class="form-control" id="floatingInputGrid3_2" placeholder="Nombre" name="peso">
                     <label for="floatingInputGrid1">Peso: </label>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
-                    <input type="text" class="form-control" id="floatingInputGrid4" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
+                    <input type="text" class="form-control" id="floatingInputGrid4_2" placeholder="usadoobjeto" aria-label="Disabled input example" disabled readonly>
                     <label for="floatingInputGrid2">¿Es Usado?: <%= objeto.getUse()%></label>
                   </div>
                 </div>

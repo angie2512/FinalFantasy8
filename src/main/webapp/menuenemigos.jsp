@@ -143,7 +143,16 @@
                     <td class="text-center"><%= enem.getExperiencia()%></td>
                     <td class="text-center"><%= enem.getObjeto()%></td>
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
-                    <td class="text-center"><%= enem.getGenero()%></td>
+                    <% if(enem.getGenero().equals("F")) {%>
+                    <td class="text-center">F</td>
+                    <%} else if (enem.getGenero().equals("M")){%>
+                       <td class="text-center">M</td>
+                       <%} else if (enem.getGenero().equals("O")) { %>
+                          <td class="text-center">O</td>
+                       <%} else { %>
+                    <td class="text-center">-</td>
+                    <%}%>
+
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            href="<%=request.getContextPath()%>/EnemigosServlet?accion=editar&id=<%= enem.getIdVillanos()%>">
