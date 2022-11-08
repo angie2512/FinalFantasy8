@@ -24,6 +24,19 @@ public class HeroesServlet extends HttpServlet {
         RequestDispatcher view;
 
         switch (action){
+            case ("editar"):
+                String id= request.getParameter("id");
+                int h = Integer.parseInt(id);
+                Heroes he = heroeDao.obtenerHeroe(h);
+                if(he == null){
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet");
+                }else{
+                    request.setAttribute("editar",he);
+                    view = request.getRequestDispatcher("editarHeroe.jsp");
+                    view.forward(request, response);
+                }
+                break;
+
             case "listar":
                 request.setAttribute("ListaHeroes", heroeDao.listarHeroes());
                 view = request.getRequestDispatcher("menuHeroes.jsp");
@@ -54,6 +67,20 @@ public class HeroesServlet extends HttpServlet {
         RequestDispatcher view;
 
         switch (accion){
+            case ("editarheroe"):
+                String id= request.getParameter("id");
+                int idd = Integer.parseInt(id);
+                String edad1 = request.getParameter("Edad");
+                String nombre1 = request.getParameter("efecto");
+                String genero1 = request.getParameter("Genero");
+                String nivel1 = request.getParameter("Nivel");
+                String ataque1 = request.getParameter("Ataque");
+                String clase1 = request.getParameter("Clase");
+                String idPareja1 = request.getParameter("idPareja");
+                String experienca1 = request.getParameter("ExperienciaInicial");
+                int nivel2 = Integer.parseInt(nivel1);
+                response.sendRedirect(request.getContextPath() + "/HeroesServlet");
+                break;
             case("buscar"):
                 String buscar = request.getParameter("keyword");
                 ArrayList<Heroes> listaFiltrada =heroeDao1.buscarPorNombre(buscar);
