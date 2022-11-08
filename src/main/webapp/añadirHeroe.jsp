@@ -65,8 +65,8 @@
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Principal</a></li>
-            <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
+            <li><a href="<%=request.getContextPath()%>/IndexServlet" >Principal</a></li>
+            <li><a href="<%=request.getContextPath()%>/HeroesServlet" class="active">Héroes</a></li>
             <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
             <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
             <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
@@ -89,16 +89,13 @@
       <div class="col-lg-5">
         <div class="section-heading">
           <div class="line-dec"></div>
-          <h2>Lista de <em> Héroes </em></h2>
+          <h2>¡Añade Todos los <em> Héroes </em> que quieras!</h2>
         </div>
       </div>
     </div>
     <div class="page-content fade-in-up">
       <div class="col-md-6" style="margin: 0 auto">
         <div class="ibox" style="align-content: center">
-          <div class="ibox-head">
-            <div class="ibox-title" style="color:white">¡Llena los datos de tu Héroe!</div>
-          </div>
           <% if(session.getAttribute("infotodo")!= null) {%>
           <div class="row g-2">
             <div class="alert alert-danger" role="alert">

@@ -42,6 +42,12 @@ public class HeroesServlet extends HttpServlet {
                 view = request.getRequestDispatcher("menuHeroes.jsp");
                 view.forward(request, response);
                 break;
+
+            case "listarinventario":
+                request.setAttribute("ListaInventario", heroeDao.listarInventario());
+                view = request.getRequestDispatcher("inventarioinicial.jsp");
+                view.forward(request, response);
+                break;
             case ("add"):
                 view = request.getRequestDispatcher("/añadirHeroe.jsp");
                 view.forward(request,response);
