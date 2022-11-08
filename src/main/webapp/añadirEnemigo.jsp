@@ -6,7 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.finalfantasy.Bean.Enemigos" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -15,7 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Final Fantasy: Héroes</title>
+    <title>Final Fantasy: Enemigos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +55,7 @@
         </div>
     </div>
 </div>
-
+<!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
@@ -82,13 +87,14 @@
 </header>
 <!-- ***** Header Area End ***** -->
 
+
 <div class="discover-items" style="padding-top: 140px">
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h2>Lista de <em> Héroes </em></h2>
+                    <h2>Crea tu propio <em> Enemigo </em></h2>
                 </div>
             </div>
         </div>
@@ -96,62 +102,62 @@
             <div class="col-md-6" style="margin: 0 auto">
                 <div class="ibox" style="align-content: center">
                     <div class="ibox-head">
-                        <div class="ibox-title" style="color:white">Datos del Héroe</div>
+                        <div class="ibox-title" style="color:white">¡Llena los datos de tu Enemigo!</div>
                     </div>
                     <div class="ibox-body">
-                        <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=añadir">
+                        <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=nuevoEnemigo">
                             <div class="row g-2">
-
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreEnemigo">
+                                        <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreenemigo">
                                         <label for="floatingInputGrid1">Nombre del Enemigo</label>
                                     </div>
                                 </div>
-
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid2" placeholder="ataque" name="ataqueEnemigo">
-                                        <label for="floatingInputGrid2">Ataque</label>
+                                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="ataque" name="ataqueenemigo">
+                                        <label for="floatingInputGrid1">Ataque</label>
                                     </div>
                                 </div>
-
-                                <div class="col-md">
-                                    <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid3" placeholder="experiencia" name="experienciaEnemigo">
-                                        <label for="floatingInputGrid2">Experiencia</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md">
-                                    <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid4" placeholder="objeto" name="objetoEnemigo">
-                                        <label for="floatingInputGrid2">Objeto</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md">
-                                    <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid5" placeholder="probabilidadObjeto" name="probabilidadEnemigo">
-                                        <label for="floatingInputGrid2">Probabilidad del Objeto</label>
-                                    </div>
-                                </div>
-
-
                                 <div class="col-md">
                                     <div class="form-floating">
-                                        <select class="form-select" id="floatingSelectGrid1" name="generoheroe">
-                                            <option selected>Género</option>
+                                        <select class="form-select" id="floatingSelectGrid1" name="generoenemigo">
+                                            <option selected>Elige</option>
                                             <option value="1">M</option>
                                             <option value="2">F</option>
                                             <option value="3">O</option>
                                         </select>
-                                        <label for="floatingSelectGrid1">Género</label>
+                                        <label for="floatingSelectGrid1">Genero</label>
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Experiencia" name="experienciaenemigo">
+                                        <label for="floatingInputGrid3">Experiencia</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Objeto" name="objetoenemigo">
+                                        <label for="floatingInputGrid4">Objeto</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid5" placeholder="ProbabilidadObjeto" name="probObjeto">
+                                        <label for="floatingInputGrid4">Porbabilidad del Objeto</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ClaseID" name="idClase">
+                                        <label for="floatingInputGrid6">ID de la Clase</label>
+                                    </div>
+                                </div>
 
                             </div>
 
@@ -169,6 +175,7 @@
 </div>
 
 
+
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -180,6 +187,7 @@
 <script src="assets/js/tabs.js"></script>
 <script src="assets/js/popup.js"></script>
 <script src="assets/js/custom.js"></script>
+
 </body>
 
 </html>
