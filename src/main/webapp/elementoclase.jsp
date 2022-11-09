@@ -152,12 +152,18 @@
                         <td class="text-center"><%= ele.getFort()%></td>
                         <td class="text-center">
                             <form method="post" action="<%=request.getContextPath()%>/ClaseServlet?accion=dama&id=<%=ele.getIdelemento()%>&id1=<%=ele.getIdClase()%>">
-                                <div class="col-md">
-                                    <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid8" placeholder="daño" name="damage">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-floating" style="margin-bottom: 5px;">
+                                            <input type="text" class="form-control" id="floatingInputGrid8" style="height: 20px;" placeholder="daño" name="damage">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="submit" style="height: 60px;background-color: #7453fc; border-color: #7453fc">
+                                                <p>Confirmar Cambios</p>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
