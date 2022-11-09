@@ -165,7 +165,15 @@
                     <td class="text-center"><%= enem.getExperiencia()%></td>
                     <td class="text-center"><%= enem.getObjeto()%></td>
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
-                    <td class="text-center"><%= enem.getGenero()%></td>
+                    <% if(enem.getGenero().equals("F")) {%>
+                    <td class="text-center">F</td>
+                    <%} else if (enem.getGenero().equals("M")){%>
+                    <td class="text-center">M</td>
+                    <%} else if (enem.getGenero().equals("O")){ %>
+                    <td class="text-center">Otro</td>
+                    <%}else{ %>
+                    <td class="text-center">-</td>0
+                    <%}%>
                     <td class="text-center"><%= enem.getCase_idClase()%></td>
                     <td class="text-center"><%= enem.getClase()%></td>
 
