@@ -47,6 +47,17 @@ public class HeroeDao extends BaseDao{
         }
         return listaHeroes;
     }
+    public  void borrarObjeto (int idO, int idH){
+        String sql = "delete from objetos_has_heroes where Objetos_idObjetos = ? and Heroes_idHeroes = ?";
+        try (Connection conna = this.getConnection();
+             PreparedStatement pstmta = conna.prepareStatement(sql)) {
+            pstmta.setInt(1,idO);
+            pstmta.setInt(2,idH);
+            pstmta.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public ArrayList<ObjetoHasHeroes> listarInventario(int identificador) {

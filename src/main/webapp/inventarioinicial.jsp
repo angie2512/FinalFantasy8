@@ -107,6 +107,8 @@
                     <th scope="col" class="text-center">Efecto/Uso</th>
                     <th scope="col" class="text-center">Peso</th>
                     <th scope="col" class="text-center">Cantidad</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -117,6 +119,19 @@
                     <td class="text-center"><%= obj.getEfecto()%></td>
                     <td class="text-center"><%= obj.getPeso()%></td>
                     <td class="text-center"><%= obj.getCantidad()%></td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=editarObjeto&id=<%= obj.getIdObjetos()%>">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
+                           onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrarObjeto&id=<%= obj.getIdObjetos()%>">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
                 </tr>
                 <% }%>
                 </tbody>
