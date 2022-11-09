@@ -2,7 +2,6 @@ package com.example.finalfantasy.Daos;
 
 import com.example.finalfantasy.Bean.Heroes;
 import com.example.finalfantasy.Bean.ObjetoHasHeroes;
-import com.example.finalfantasy.Bean.Objetos;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -245,5 +244,28 @@ public class HeroeDao extends BaseDao{
             e.printStackTrace();
         }
     }
+    public void actualizar(int idHeroes, int edad, String nombre, String genero, int nivel, int ataque, String clase, int idPareja, float experiencia ) {
+
+        String sql = "UPDATE heroes SET Edad =?, Nombre = ?,Genero = ?, Nivel = ?, Ataque = ?,Clase = ?, idPareja =?, ExperienciaInicial = ? WHERE idHeroes = ?";
+
+        try (Connection connexi = this.getConnection();
+             PreparedStatement pstmtac = connexi.prepareStatement(sql)){
+            System.out.println(nombre);
+            pstmtac.setInt(1,edad);
+            pstmtac.setString(2,nombre);
+            pstmtac.setString(3,genero);
+            pstmtac.setInt(4,nivel);
+            pstmtac.setInt(5,ataque);
+            pstmtac.setString(6, clase);
+            pstmtac.setInt(7,idPareja);
+            pstmtac.setFloat(8,experiencia);
+            pstmtac.setInt(9,idHeroes);
+            pstmtac.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

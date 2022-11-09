@@ -24,7 +24,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Final Fantasy: Editar Héroe</title>
+    <title>Final Fantasy: Editar Enemigo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -72,8 +72,8 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="<%=request.getContextPath()%>/IndexServlet" >Principal</a></li>
-                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Héroes</a></li>
-                        <li><a href="<%=request.getContextPath()%>/HeroesServlet" class="active">Enemigos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
+                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet" class="active">Enemigos</a></li>
                         <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
