@@ -39,6 +39,9 @@ public class EnemigosServlet extends HttpServlet {
                 break;
 
             case "listar":
+                request.setAttribute("singenero", enemigoDao.enemigosSinGenero());
+                request.setAttribute("clasecomun", enemigoDao.obtenerClaseComun());
+                request.setAttribute("objeto", enemigoDao.obtenerPopularObjeto());
                 request.setAttribute("listaEnemigos", enemigoDao.listarEnemigos());
                 requestDispatcher = request.getRequestDispatcher("menuenemigos.jsp");
                 requestDispatcher.forward(request, response);

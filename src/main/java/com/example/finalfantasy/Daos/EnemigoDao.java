@@ -5,6 +5,7 @@ import com.example.finalfantasy.Bean.Heroes;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EnemigoDao extends BaseDao{
     public String obtenerClase(String id1){
@@ -155,7 +156,65 @@ public class EnemigoDao extends BaseDao{
         }
         return en;
     }
-    
+
+    public String obtenerPopularObjeto() {
+        String sql = "select e.Objeto,count(*) as `Cantidad` from enemigos e group by Objeto order by `Cantidad` desc ";
+        try (Connection connex = this.getConnection();
+             PreparedStatement pstmth = connex.prepareStatement(sql)){
+            try (ResultSet rs = pstmth.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public String obtenerClaseComun() {
+        String sql =" select e.Clase_idClase,count(*) as `Cantidad` from enemigos e group by Clase_idClase order by `Cantidad` desc";
+        int idClase = 0;
+        try (Connection con = this.getConnection();
+             PreparedStatement pstmth = con.prepareStatement(sql)){
+            try (ResultSet rs = pstmth.executeQuery()) {
+                if (rs.next()) {
+                    idClase = rs.getInt(1);
+                        String id = String.valueOf(idClase);
+                        return obtenerClase(id);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Float enemigosSinGenero() {
+        String sql = "select e.Genero,count(*) as `Cantidad` from enemigos e group by Genero order by `Cantidad` asc\n";
+        int total=0;
+        int sin = 0;
+        float porcentaje = 0;
+
+        try (Connection connex = this.getConnection();
+             PreparedStatement pstmth = connex.prepareStatement(sql)){
+            try (ResultSet rs = pstmth.executeQuery()) {
+                while (rs.next()) {
+                    if(Objects.equals(rs.getString("Genero"), "-")){
+                        sin = rs.getInt("Cantidad");
+                    }
+                    total=total + rs.getInt("Cantidad");
+
+                }
+                porcentaje = (sin/total)*100;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return porcentaje;
+    }
     public void actualizar(int idVillanos, String nombre, int ataque, int  experiencia, String objeto, float probabilidadObjeto, String genero, int claseId) {
 
         String sql = "UPDATE enemigos SET Nombre = ?, Ataque = ?, Experiencia = ?, Objeto = ?, ProbabilidadObjeto = ?, Genero = ?, Clase_idClase = ? WHERE idVillanos = ?";
