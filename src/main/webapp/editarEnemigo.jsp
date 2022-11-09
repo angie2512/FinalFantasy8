@@ -105,7 +105,14 @@
                     <div class="ibox-head">
                         <div class="ibox-title">Datos del Enemigo</div>
                     </div>
-
+                    <div class="row g-2">
+                        <% if(session.getAttribute("infotodo")!= null) {%>
+                        <div class="alert alert-danger" role="alert">
+                            <%=session.getAttribute("infotodo")%>
+                        </div>
+                        <%session.removeAttribute("infotodo");%>
+                        <%}%>
+                    </div>
                     <div class="ibox-body">
                         <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=editarEnemigo&villanoId=<%= enemigos.getIdVillanos()%>">
                             <div class="row g-2">

@@ -108,6 +108,14 @@
           <div class="ibox-body">
             <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=editarHeroe&heroeId=<%= heroes.getIdHeroes()%>">
               <div class="row g-2">
+                <% if(session.getAttribute("infotodo")!= null) {%>
+                <div class="alert alert-danger" role="alert">
+                  <%=session.getAttribute("infotodo")%>
+                </div>
+                <%session.removeAttribute("infotodo");%>
+                <%}%>
+              </div>
+              <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
                     <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idheroe" aria-label="Disabled input example" disabled readonly>
@@ -173,8 +181,6 @@
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
               <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
               <div class="form-group">
                 <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
