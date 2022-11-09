@@ -95,50 +95,45 @@
 <div class="discover-items" style="padding-top: 140px">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <div class="section-heading">
                     <div class="line-dec"></div>
                     <h2>Lista de <em> Enemigos </em></h2>
                 </div>
             </div>
 
-            <div class="col-lg-7" style="text-align: center">
-                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+            <div class="col-lg-3">
+                <div style="padding-top: 5vh; margin: 0px auto;" class="col-lg-7">
                     <fieldset>
-                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propio Enemigo!</h4>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=new" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem;">¡Crea tu propio Enemigo!</h4>
+
+                    </fieldset>
+                    <fieldset>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=new" style="margin-left: 250px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                             <i class="bi bi-pencil-square">Añadir Enemigo</i>
                         </a>
                     </fieldset>
+
                 </div>
             </div>
-
-
-
-            <div class="col-lg-7" style="text-align: center">
-                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
-                    <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/ClaseServlet?accion=listar" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
-                            <i class="bi bi-pencil-square">Ver Clases</i>
-                        </a>
-                    </fieldset>
-                </div>
+            <div class="col-lg-5">
+                <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/ClaseServlet?accion=listar" style="margin-left:250px;margin-top:26px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                    <i class="bi bi-pencil-square">Ver Clases</i>
+                </a>
             </div>
-
 
             <form id="search-form" name="gs" method="post" role="search" action="<%=request.getContextPath()%>/EnemigosServlet?accion=buscar">
                 <div class="col-lg-4">
                     <fieldset>
-                        <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un enemigo..." autocomplete="on" required style="width: 1140px;margin-top: 0.7rem">
-                    </fieldset>
-                </div>
-                <div class="col-lg-2">
-                    <fieldset>
-                        <button class="main-button" type="submit" style="margin-left: 1170px;width: 120px;bottom: 46px" >Buscar</button>
-                    </fieldset>
-                </div>
-            </form>
+                        <input type="text" name="keyword" class="searchText" placeholder="Escribe el nombre de un enemigo..." autocomplete="on" required="" style="width: 972px;margin-top: 0.7rem">
+                        <button class="main-button" type="submit" style="margin-left:994px;width: 120px;bottom: 46px">Buscar</button>
 
+                    </fieldset>
+
+
+                </div>
+
+            </form>
             <table class="table table-dark table-hover">
                 <thead>
                 <tr>
