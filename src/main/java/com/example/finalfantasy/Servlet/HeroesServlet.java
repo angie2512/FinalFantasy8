@@ -134,20 +134,32 @@ public class HeroesServlet extends HttpServlet {
         RequestDispatcher view;
 
         switch (accion){
-            case ("editarheroe"):
+            case ("editarHeroe"):
                 String id= request.getParameter("id");
                 int idd = Integer.parseInt(id);
-                String edad1 = request.getParameter("Edad");
-                String nombre1 = request.getParameter("efecto");
-                String genero1 = request.getParameter("Genero");
-                String nivel1 = request.getParameter("Nivel");
-                String ataque1 = request.getParameter("Ataque");
-                String clase1 = request.getParameter("Clase");
-                String idPareja1 = request.getParameter("idPareja");
-                String experienca1 = request.getParameter("ExperienciaInicial");
-                int nivel2 = Integer.parseInt(nivel1);
+                String edad1 = request.getParameter("edad");
+                String nombre1 = request.getParameter("nombre");
+                String genero1 = request.getParameter("genero");
+                String nivel1 = request.getParameter("nivel");
+                String ataque1 = request.getParameter("ataque");
+                String clase1 = request.getParameter("clase");
+                String idPareja1 = request.getParameter("pareja");
+                String experienca1 = request.getParameter("experiencia");
                 response.sendRedirect(request.getContextPath() + "/HeroesServlet");
+                try{
+                    int edadh = Integer.parseInt(edad1);
+                    int nivelh = Integer.parseInt(nivel1);
+                    int ataqueh = Integer.parseInt(ataque1);
+                    int parejah = Integer.parseInt(idPareja1);
+                    float experienciah = Float.parseFloat(experienca1);
+                    heroeDao1.actualizar(idd,edadh,nombre1,genero1,nivelh,ataqueh,clase1,parejah,experienciah);
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
+                } catch (NumberFormatException e) {
+                    request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
+                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?accion=editarHeroe&id="+id);
+                }
                 break;
+
             case("buscar"):
                 String buscar = request.getParameter("keyword");
                 ArrayList<Heroes> listaFiltrada =heroeDao1.buscarPorNombre(buscar);
