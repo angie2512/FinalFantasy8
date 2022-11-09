@@ -56,7 +56,7 @@ public class ClaseDao  extends  BaseDao{
                 damage = rs.getFloat("daño");
                 if (damage>1){
                     ele.setFort("Debilidad");
-                } else if (damage<0) {
+                } else if (damage<1) {
                     ele.setFort("Fortaleza");
                 }else {
                     ele.setFort("-");
