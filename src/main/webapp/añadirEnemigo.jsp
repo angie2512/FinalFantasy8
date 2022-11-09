@@ -70,9 +70,9 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Principal</a></li>
+                        <li><a href="<%=request.getContextPath()%>/IndexServlet">Principal</a></li>
                         <li><a href="<%=request.getContextPath()%>/HeroesServlet">Héroes</a></li>
-                        <li><a href="<%=request.getContextPath()%>/EnemigosServlet">Enemigos</a></li>
+                        <li><a href="<%=request.getContextPath()%>/IndexServlet" class="active">Enemigos</a></li>
                         <li><a href="<%=request.getContextPath()%>/HechizosServlet">Hechizos</a></li>
                         <li><a href="<%=request.getContextPath()%>/CatalogoServlet">Catálogo de objetos</a></li>
                     </ul>
@@ -104,28 +104,38 @@
                     <div class="ibox-head">
                         <div class="ibox-title" style="color:white">¡Llena los datos de tu Enemigo!</div>
                     </div>
+
+                    <% if(session.getAttribute("infotodo")!= null) {%>
+                    <div class="row g-2">
+                        <div class="alert alert-danger" role="alert">
+                            <%=session.getAttribute("infotodo")%>
+                        </div>
+                    </div>
+                    <%session.removeAttribute("infotodo");%>
+                    <%}%>
+
                     <div class="ibox-body">
-                        <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=nuevoEnemigo">
+                        <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=add">
                             <div class="row g-2">
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreenemigo">
+                                        <input type="text" class="form-control" id="floatingInputGrid1" placeholder="Nombre" name="nombreEnemigo">
                                         <label for="floatingInputGrid1">Nombre del Enemigo</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="ataque" name="ataqueenemigo">
+                                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="ataque" name="ataqueEnemigo">
                                         <label for="floatingInputGrid1">Ataque</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating">
-                                        <select class="form-select" id="floatingSelectGrid1" name="generoenemigo">
+                                        <select class="form-select" id="floatingSelectGrid1" name="generoEnemigo">
                                             <option selected>Elige</option>
-                                            <option value="1">M</option>
-                                            <option value="2">F</option>
-                                            <option value="3">O</option>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
+                                            <option value="O">O</option>
                                         </select>
                                         <label for="floatingSelectGrid1">Genero</label>
                                     </div>
@@ -134,13 +144,13 @@
                             <div class="row g-2">
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Experiencia" name="experienciaenemigo">
+                                        <input type="text" class="form-control" id="floatingInputGrid3" placeholder="Experiencia" name="experienciaEnemigo">
                                         <label for="floatingInputGrid3">Experiencia</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Objeto" name="objetoenemigo">
+                                        <input type="text" class="form-control" id="floatingInputGrid4" placeholder="Objeto" name="objetoEnemigo">
                                         <label for="floatingInputGrid4">Objeto</label>
                                     </div>
                                 </div>
@@ -148,13 +158,13 @@
                             <div class="row g-2">
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid5" placeholder="ProbabilidadObjeto" name="probObjeto">
-                                        <label for="floatingInputGrid4">Porbabilidad del Objeto</label>
+                                        <input type="text" class="form-control" id="floatingInputGrid5" placeholder="ProbabilidadObjeto" name="probabilidadEnemigo">
+                                        <label for="floatingInputGrid4">Probabilidad del Objeto</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating" style="margin-bottom: 5px;">
-                                        <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ClaseID" name="idClase">
+                                        <input type="text" class="form-control" id="floatingInputGrid6" placeholder="ClaseID" name="idClaseEnemigo">
                                         <label for="floatingInputGrid6">ID de la Clase</label>
                                     </div>
                                 </div>
@@ -164,7 +174,7 @@
                             <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit" >Añadir</button>
-                                <a href="<%=request.getContextPath()%>/EnemigosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                                <a href="<%=request.getContextPath()%>/EnemigosServlet?" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

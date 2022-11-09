@@ -16,12 +16,10 @@ public class EnemigosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String accion = request.getParameter("accion") == null ? "listar" : request.getParameter("accion");
-        RequestDispatcher view;
         EnemigoDao enemigoDao = new EnemigoDao();
+        RequestDispatcher view;
 
         RequestDispatcher requestDispatcher;
-
-
         switch (accion) {
             case ("editar"):
                 String id= request.getParameter("id");
@@ -35,7 +33,7 @@ public class EnemigosServlet extends HttpServlet {
                     view.forward(request, response);
                 }
                 break;
-            case ("añadirenemigo"):
+            case ("new"):
                 view = request.getRequestDispatcher("/añadirEnemigo.jsp");
                 view.forward(request,response);
                 break;
@@ -54,7 +52,7 @@ public class EnemigosServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+"/EnemigosServlet");
 
                 }catch (NumberFormatException e){
-                    response.sendRedirect(request.getContextPath()+ "/CatalogoServlet");
+                    response.sendRedirect(request.getContextPath()+ "/EnemigosServlet");
                 }
                 break;
 
@@ -69,6 +67,32 @@ public class EnemigosServlet extends HttpServlet {
         RequestDispatcher view;
 
         switch (accion){
+
+            case "actualizar":
+
+                String villadoIdstr = request.getParameter("villadoId");
+                String nombreE = request.getParameter("nombre");
+                String ataquestr = request.getParameter("ataque");
+                String experienciastr = request.getParameter("experiencia");
+                String objetoE = request.getParameter("objeto");
+                String probabilidadObjetostr = request.getParameter("probabilidadObjeto");
+                String generoE = request.getParameter("genero");
+                String idClasestr = request.getParameter("claseId");
+                try {
+                    int villanoID = Integer.parseInt(villadoIdstr);
+                    int ataqueEnemigo = Integer.parseInt(ataquestr);
+                    int experienciaEnemigo = Integer.parseInt(experienciastr);
+                    float probabilidadEnemigo = Float.parseFloat(probabilidadObjetostr);
+                    int claseID = Integer.parseInt(idClasestr);
+
+                    enemigoDao1.actualizar(villanoID, nombreE, ataqueEnemigo, experienciaEnemigo, objetoE, probabilidadEnemigo, generoE, claseID);
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=listar");
+                } catch (NumberFormatException e) {
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=editar&id=" + villadoIdstr);
+                }
+                break;
+
+
             case("buscar"):
                 String buscar = request.getParameter("keyword");
                 ArrayList<Enemigos> listaFiltrada =enemigoDao1.buscarPorNombre(buscar);
@@ -77,7 +101,7 @@ public class EnemigosServlet extends HttpServlet {
                 view.forward(request,response);
                 break;
 
-            case ("nuevoEnemigo"):
+            case ("add"):
                 String nombre = request.getParameter("nombreEnemigo");
                 String ataque = request.getParameter("ataqueEnemigo");
                 String experiencia = request.getParameter("experienciaEnemigo");
@@ -100,11 +124,13 @@ public class EnemigosServlet extends HttpServlet {
                     nuevoenemigo.setProbabilidadObjeto(probabilidadObj1);
                     nuevoenemigo.setGenero(genero);
                     nuevoenemigo.setCase_idClase(claseId);
+
                     enemigoDao1.anadirEnemigo(nuevoenemigo);
-                    response.sendRedirect(request.getContextPath()+ "EnemigosServlet?");
+                    response.sendRedirect(request.getContextPath()+ "/EnemigosServlet?");
 
                 } catch (NumberFormatException e) {
-                    response.sendRedirect(request.getContextPath() + "/HeroesServlet?");
+                    request.getSession().setAttribute("infotodo","Campos llenados erroneamente");
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=new");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
