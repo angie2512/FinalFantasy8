@@ -105,21 +105,16 @@
                     <h2>Lista de <em> Enemigos </em></h2>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div style="padding-top: 5vh; margin: 0px auto;" class="col-lg-7">
+           <div class="col-lg-7" style="text-align: center">
+                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
-                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem;">¡Crea tu propio Enemigo!</h4>
-
-                    </fieldset>
-                    <fieldset>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=new" style="margin-left: 250px;width: 126px; background-color: #7453fc; border-color: #7453fc">
-                            <i class="bi bi-pencil-square">Añadir Enemigo</i>
+                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propio<br>Enemigo!</h4>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=new" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                            <i class="bi bi-pencil-square">Añadir<br>Enemigo</i>
                         </a>
                     </fieldset>
-
                 </div>
             </div>
-
             <div class="col-lg-5">
                 <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/ClaseServlet?accion=listar" style="margin-left:250px;margin-top:26px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                     <i class="bi bi-pencil-square">Ver Clases</i>
