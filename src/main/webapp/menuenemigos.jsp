@@ -12,6 +12,10 @@
 
 <%
     ArrayList<Enemigos> listaEnemigos = (ArrayList<Enemigos>) request.getAttribute("listaEnemigos");
+    String objetocomu = (String) request.getAttribute("objeto");
+    String clasecomune = (String) request.getAttribute("clasecomun");
+    Float singeneroe = (Float) request.getAttribute("singenero");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +105,6 @@
                     <h2>Lista de <em> Enemigos </em></h2>
                 </div>
             </div>
-
             <div class="col-lg-3">
                 <div style="padding-top: 5vh; margin: 0px auto;" class="col-lg-7">
                     <fieldset>
@@ -116,6 +119,7 @@
 
                 </div>
             </div>
+
             <div class="col-lg-5">
                 <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/ClaseServlet?accion=listar" style="margin-left:250px;margin-top:26px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                     <i class="bi bi-pencil-square">Ver Clases</i>
@@ -134,6 +138,25 @@
                 </div>
 
             </form>
+            <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center">Objeto Común</th>
+                    <th scope="col" class="text-center">Clase común</th>
+                    <th scope="col" class="text-center">Sin Género</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th class="text-center" scope="row"><%= objetocomu%></th>
+                    <td class="text-center"><%= clasecomune%></td>
+                    <td class="text-center"><%= singeneroe%></td>
+
+
+                </tr>
+                </tbody>
+            </table>
             <table class="table table-dark table-hover">
                 <thead>
                 <tr>
