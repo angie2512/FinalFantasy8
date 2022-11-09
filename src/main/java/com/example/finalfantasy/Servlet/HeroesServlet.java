@@ -27,6 +27,20 @@ public class HeroesServlet extends HttpServlet {
         switch (action){
             case ("editar"):
                 String id= request.getParameter("id");
+                String nombre = request.getParameter("Nombre");
+                String edad = request.getParameter("Edad");
+                String genero = request.getParameter("Genero");
+                String nivel = request.getParameter("Nivel");
+                String ataque = request.getParameter("Ataque");
+                String clase = request.getParameter("Clase");
+                String exp = request.getParameter("ExperienciaInicial");
+                int name = 0;
+                int edad1 = 0;
+                int genero1 = 0;
+                int nivel1 = 0;
+                int ataque1 = 0;
+                int clase1 = 0;
+                int exp1 = 0;
                 int h = Integer.parseInt(id);
                 Heroes he = heroeDao.obtenerHeroe(h);
                 if(he == null){
@@ -66,6 +80,8 @@ public class HeroesServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath()+ "/HeroesServlet");
                 }
                 break;
+
+
         }
     }
 
