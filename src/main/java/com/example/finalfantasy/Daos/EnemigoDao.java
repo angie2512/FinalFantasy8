@@ -61,7 +61,7 @@ public class EnemigoDao extends BaseDao{
     }
 
     public void anadirEnemigo(Enemigos enemigos) throws SQLException{
-        String sql = "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " + "values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into enemigos (nombre, ataque, experiencia, objeto, probabilidadObjeto, genero, clase_idClase) " + "values (?,?,?,?,?,?,?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -141,4 +141,35 @@ public class EnemigoDao extends BaseDao{
         }
         return en;
     }
+    
+    public void actualizar(int idVillanos, String nombre, int ataque, int  experiencia, String objeto, float probabilidadObjeto, String genero, int claseId) {
+
+        String sql = "UPDATE enemigos SET Nombre = ?, Ataque = ?, Experiencia = ?, Objeto = ?, ProbabilidadObjeto = ?, Genero = ?, Clase_idClase = ? WHERE idVillanos = ?";
+
+        try (Connection connex = this.getConnection();
+             PreparedStatement pstmt = connex.prepareStatement(sql)){
+            System.out.println(nombre);
+            pstmt.setInt(1,idVillanos);
+            pstmt.setString(2,nombre);
+            pstmt.setInt(3,ataque);
+            pstmt.setInt(4,experiencia);
+            pstmt.setString(5,objeto);
+            pstmt.setFloat(6,probabilidadObjeto);
+            pstmt.setString(7, genero);
+            pstmt.setInt(8,claseId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
+
+
+
+
 }

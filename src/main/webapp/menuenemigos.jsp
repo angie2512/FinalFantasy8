@@ -106,7 +106,7 @@
                 <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
                     <fieldset>
                         <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Crea tu propio Enemigo!</h4>
-                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=añadirenemigo" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/EnemigosServlet?accion=new" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
                             <i class="bi bi-pencil-square">Añadir Enemigo</i>
                         </a>
                     </fieldset>
