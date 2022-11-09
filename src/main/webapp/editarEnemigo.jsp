@@ -106,64 +106,72 @@
                         <div class="ibox-title">Datos del Enemigo</div>
                     </div>
 
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idenemigo" aria-label="Disabled input example" disabled readonly>
-                                <label for="floatingInputGrid1">Id Enemigo: <%=enemigos.getIdVillanos()%></label>
+                    <div class="ibox-body">
+                        <form method="post" action="<%=request.getContextPath()%>/EnemigosServlet?accion=editarEnemigo&villanoId=<%= enemigos.getIdVillanos()%>">
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idenemigo" aria-label="Disabled input example" disabled readonly>
+                                        <label for="floatingInputGrid1">Id Enemigo: <%=enemigos.getIdVillanos()%></label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid2" placeholder="nombreEnemigo" name="nombre">
+                                        <label for="floatingInputGrid2"> Nombre: <%=enemigos.getNombre()%></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid2" placeholder="nombre" name="nombreenemigo">
-                                <label for="floatingInputGrid2"> Nombre: <%=enemigos.getNombre()%></label>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid3" placeholder="ataqueEnemigo" name="ataque">
+                                        <label for="floatingInputGrid3">Ataque: <%=enemigos.getAtaque()%></label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid4" placeholder="experienciaEnemigo" name="experiencia">
+                                        <label for="floatingInputGrid4">Experiencia: <%=enemigos.getExperiencia()%></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid3" placeholder="ataque" name="ataqueenemigo">
-                                <label for="floatingInputGrid3">Ataque: <%=enemigos.getAtaque()%></label>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid5" placeholder="objetoEnemigo" name="objeto">
+                                        <label for="floatingInputGrid4">Objeto: <%=enemigos.getObjeto()%></label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid6" placeholder="probabilidad" name="probabilidadObjeto">
+                                        <label for="floatingInputGrid6">Probabilidad Objeto: <%=enemigos.getProbabilidadObjeto()%></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid4" placeholder="experiencia" name="experienciaenemigo">
-                                <label for="floatingInputGrid4">Experiencia: <%=enemigos.getExperiencia()%></label>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid8" placeholder="generoEnemigo" name="genero">
+                                        <label for="floatingInputGrid6">Genero: <%=enemigos.getGenero()%></label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating" style="margin-bottom: 5px;">
+                                        <input type="text" class="form-control" id="floatingInputGrid7" placeholder="idClase" name="claseId">
+                                        <label for="floatingInputGrid4">ID Clase: <%=enemigos.getCase_idClase()%></label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid5" placeholder="objeto" name="objetoenemigo">
-                                <label for="floatingInputGrid4">Objeto: <%=enemigos.getObjeto()%></label>
+                            <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
+                                <a href="<%=request.getContextPath()%>/EnemigosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
                             </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid6" placeholder="probabilidad" name="probObjeto">
-                                <label for="floatingInputGrid6">Probabilidad Objeto: <%=enemigos.getProbabilidadObjeto()%></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating" style="margin-bottom: 5px;">
-                                <input type="text" class="form-control" id="floatingInputGrid7" placeholder="idClase" name="idClaseEnemigo">
-                                <label for="floatingInputGrid4">ID Clase: <%=enemigos.getCase_idClase()%></label>
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
-
-                    <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
-                        <a href="<%=request.getContextPath()%>/EnemigosServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>

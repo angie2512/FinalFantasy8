@@ -68,9 +68,9 @@ public class EnemigosServlet extends HttpServlet {
 
         switch (accion){
 
-            case "actualizar":
+            case ("editarEnemigo"):
 
-                String villadoIdstr = request.getParameter("villadoId");
+                String villanoIdstr = request.getParameter("villanoId");
                 String nombreE = request.getParameter("nombre");
                 String ataquestr = request.getParameter("ataque");
                 String experienciastr = request.getParameter("experiencia");
@@ -79,16 +79,16 @@ public class EnemigosServlet extends HttpServlet {
                 String generoE = request.getParameter("genero");
                 String idClasestr = request.getParameter("claseId");
                 try {
-                    int villanoID = Integer.parseInt(villadoIdstr);
+                    int villanoID = Integer.parseInt(villanoIdstr);
                     int ataqueEnemigo = Integer.parseInt(ataquestr);
                     int experienciaEnemigo = Integer.parseInt(experienciastr);
                     float probabilidadEnemigo = Float.parseFloat(probabilidadObjetostr);
                     int claseID = Integer.parseInt(idClasestr);
 
                     enemigoDao1.actualizar(villanoID, nombreE, ataqueEnemigo, experienciaEnemigo, objetoE, probabilidadEnemigo, generoE, claseID);
-                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=listar");
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet");
                 } catch (NumberFormatException e) {
-                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=editar&id=" + villadoIdstr);
+                    response.sendRedirect(request.getContextPath() + "/EnemigosServlet?accion=editar&id=" + villanoIdstr);
                 }
                 break;
 

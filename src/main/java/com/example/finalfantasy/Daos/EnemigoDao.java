@@ -12,7 +12,7 @@ public class EnemigoDao extends BaseDao{
 
         ArrayList<Enemigos> listaEnemigos = new ArrayList<>();
         String sql = "select * from enemigos";
-
+        String sql1 = "select * from clase";
         try (Connection connection = this.getConnection();
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
@@ -21,7 +21,8 @@ public class EnemigoDao extends BaseDao{
             while (rs.next()){
                 Enemigos enemigos = new Enemigos();
                 enemigos.setIdVillanos(rs.getInt("Idvillanos"));
-                clasene = (rs.getInt("Clase_idClase"));
+                enemigos.setCase_idClase(rs.getInt("clase_idClase"));
+                clasene = (rs.getInt("clase_idClase"));
                 enemigos.setNombre(rs.getString("Nombre"));
                 enemigos.setAtaque(rs.getInt("Ataque"));
                 enemigos.setExperiencia(rs.getInt("Experiencia"));
@@ -30,9 +31,9 @@ public class EnemigoDao extends BaseDao{
                 enemigos.setProbabilidadObjeto(rs.getFloat("ProbabilidadObjeto"));
                 try (Connection connection2 = this.getConnection();
                      Statement stmt2 = connection2.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                     ResultSet rs1 = stmt2.executeQuery(sql);) {
+                     ResultSet rs1 = stmt2.executeQuery(sql1);) {
                     rs1.absolute(clasene);
-                    nombreclase = rs1.getString("Nombre");
+                    nombreclase = rs1.getString("NombreClase");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -149,15 +150,14 @@ public class EnemigoDao extends BaseDao{
         try (Connection connex = this.getConnection();
              PreparedStatement pstmt = connex.prepareStatement(sql)){
             System.out.println(nombre);
-            pstmt.setInt(1,idVillanos);
-            pstmt.setString(2,nombre);
-            pstmt.setInt(3,ataque);
-            pstmt.setInt(4,experiencia);
-            pstmt.setString(5,objeto);
-            pstmt.setFloat(6,probabilidadObjeto);
-            pstmt.setString(7, genero);
-            pstmt.setInt(8,claseId);
-
+            pstmt.setString(1,nombre);
+            pstmt.setInt(2,ataque);
+            pstmt.setInt(3,experiencia);
+            pstmt.setString(4,objeto);
+            pstmt.setFloat(5,probabilidadObjeto);
+            pstmt.setString(6, genero);
+            pstmt.setInt(7,claseId);
+            pstmt.setInt(8,idVillanos);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {

@@ -150,6 +150,8 @@
                     <th scope="col" class="text-center">Probabilidad Objeto</th>
                     <th scope="col" class="text-center">Genero</th>
                     <th scope="col" class="text-center">ID Clase</th>
+                    <th scope="col" class="text-center">Nombre Clase</th>
+
                     <th scope="col" class="text-center">Editar</th>
                     <th scope="col" class="text-center">Borrar</th>
                 </tr>
@@ -165,6 +167,7 @@
                     <td class="text-center"><%= enem.getProbabilidadObjeto()%></td>
                     <td class="text-center"><%= enem.getGenero()%></td>
                     <td class="text-center"><%= enem.getCase_idClase()%></td>
+                    <td class="text-center"><%= enem.getClase()%></td>
 
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
