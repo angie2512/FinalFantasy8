@@ -101,6 +101,7 @@
                 <tr>
                     <th scope="col" class="text-center">Id</th>
                     <th scope="col" class="text-center">Nombre de la Clase</th>
+                    <th scope="col" class="text-center">Ver Fortalezas-Debilidades</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -108,6 +109,12 @@
                 <tr>
                     <th class="text-center" scope="row"><%= clase.getIdClase()%></th>
                     <td class="text-center"><%= clase.getNombreClase()%></td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
+                           href="<%=request.getContextPath()%>/ClaseServlet?accion=clases&id=<%=clase.getIdClase()%>">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </td>
 
                 </tr>
                 <% }%>

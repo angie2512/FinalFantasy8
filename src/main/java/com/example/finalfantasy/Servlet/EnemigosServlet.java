@@ -22,8 +22,8 @@ public class EnemigosServlet extends HttpServlet {
         RequestDispatcher requestDispatcher;
         switch (accion) {
             case ("editar"):
-                String id= request.getParameter("id");
-                int ene = Integer.parseInt(id);
+                String ID= request.getParameter("id");
+                int ene = Integer.parseInt(ID);
                 Enemigos en = enemigoDao.obtenerEnemigo(ene);
                 if(en == null){
                     response.sendRedirect(request.getContextPath() + "/EnemigosServlet");

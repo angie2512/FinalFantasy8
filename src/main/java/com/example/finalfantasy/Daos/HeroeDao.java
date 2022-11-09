@@ -48,12 +48,16 @@ public class HeroeDao extends BaseDao{
         return listaHeroes;
     }
     public  void borrarObjeto (int idO, int idH){
+        System.out.println(idO);
+        System.out.println(idH);
         String sql = "delete from objetos_has_heroes where Objetos_idObjetos = ? and Heroes_idHeroes = ?";
-        try (Connection conna = this.getConnection();
-             PreparedStatement pstmta = conna.prepareStatement(sql)) {
-            pstmta.setInt(1,idO);
-            pstmta.setInt(2,idH);
-            pstmta.executeUpdate();
+        try (Connection connt = this.getConnection();
+             PreparedStatement pstmtt = connt.prepareStatement(sql)) {
+            pstmtt.setInt(1,idO);
+            pstmtt.setInt(2,idH);
+            System.out.println("Entro");
+            pstmtt.executeUpdate();
+            System.out.println("Borro");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,6 +83,8 @@ public class HeroeDao extends BaseDao{
                     obje.setPeso(rs1.getFloat("Peso"));
                     obje.setCantidad(rs.getInt("Cantidad"));
                     obje.setIdObjetos(rs.getInt("Objetos_idObjetos"));
+                    obje.setHeroes_idHeroes(identificador);
+                    obje.setObjeto_idObjeto(rs.getInt("Objetos_idObjetos"));
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

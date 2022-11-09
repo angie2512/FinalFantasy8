@@ -7,6 +7,7 @@ import com.example.finalfantasy.Bean.Objetos;
 import com.example.finalfantasy.Bean.ObjetoHasHeroes;
 import com.example.finalfantasy.Daos.HechizoDao;
 import com.example.finalfantasy.Daos.HeroeDao;
+import com.example.finalfantasy.Daos.ObjetosDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,9 +23,49 @@ public class HeroesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("accion") == null?"listar":request.getParameter("accion");
         HeroeDao heroeDao = new HeroeDao();
+        ObjetosDao ob = new ObjetosDao();
         RequestDispatcher view;
 
         switch (action){
+            case ("editarObjeto"):
+                String idobjeto1 = request.getParameter("idd");
+                String idHeroe1 = request.getParameter("idH");
+                try {
+                    int idO = Integer.parseInt(idobjeto1);
+                    int idh = Integer.parseInt(idHeroe1);
+                    Objetos ob1 = ob.obtenerObjeto(idO);
+                    if(ob1 == null){
+                        System.out.println("Objeto nulo");
+                        System.out.println(idHeroe1);
+                        response.sendRedirect(request.getContextPath()+ "/HeroesServlet?accion=listarinventario&id="+idHeroe1);
+                    }else{
+                        request.setAttribute("editar",ob1);
+                        System.out.println("Objeto no nulo");
+                        System.out.println(idHeroe1);
+                        System.out.println(idO);
+                        Heroes hero1 = heroeDao.obtenerHeroe(idh);
+                        request.setAttribute("hero",hero1);
+                        view = request.getRequestDispatcher("editarobjeto.jsp");
+                        view.forward(request, response);
+                    }
+                    break;
+                }catch (NumberFormatException e){
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet?accion=listarinventario&id="+idHeroe1);
+                }
+                break;
+            case ("borrarObjeto"):
+                String idobjeto = request.getParameter("idd");
+                String idHeroe = request.getParameter("idH");
+                try {
+                    int idO = Integer.parseInt(idobjeto);
+                    int idH = Integer.parseInt(idHeroe);
+                    heroeDao.borrarObjeto(idO, idH);
+                    System.out.println("NOBORRA");
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet?accion=listarinventario&id="+idH);
+                }catch (NumberFormatException e){
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet?accion=listarinventario&id="+idHeroe);
+                }
+                break;
             case ("editar"):
                 String id= request.getParameter("id");
                 String nombre = request.getParameter("Nombre");

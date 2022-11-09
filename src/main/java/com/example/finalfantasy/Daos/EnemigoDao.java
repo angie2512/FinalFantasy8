@@ -7,6 +7,19 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class EnemigoDao extends BaseDao{
+    public String obtenerClase(String id1){
+        String clase = null;
+        String sql1 = "select * from clase where idClase= "+id1;
+        try (Connection connection = this.getConnection();
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql1);) {
+            rs.next();
+            clase = rs.getString("NombreClase");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return clase;
+    }
 
     public ArrayList<Enemigos> listarEnemigos(){
 

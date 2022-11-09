@@ -98,7 +98,16 @@
                     <h2>Descubre el inventario de tu <em> Héroe </em></h2>
                 </div>
             </div>
-
+            <div class="col-lg-7" style="text-align: center">
+                <div class="col-lg-2" style="padding-top: 5vh; margin: 0px auto;">
+                    <fieldset>
+                        <h4 style="width: 250px; border-top-width: 100px; height: 0.05rem; margin-left: 40px">¡Añade objetos a tu Héroe!</h4>
+                        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/CatalogoServlet?accion=addd" style="margin-left: 300px;width: 126px; background-color: #7453fc; border-color: #7453fc">
+                            <i class="bi bi-pencil-square">Añadir Objeto</i>
+                        </a>
+                    </fieldset>
+                </div>
+            </div>
             <table class="table table-dark table-hover">
                 <thead>
                 <tr>
@@ -121,14 +130,14 @@
                     <td class="text-center"><%= obj.getCantidad()%></td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=editarObjeto&id=<%= obj.getIdObjetos()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=editarObjeto&idd=<%=obj.getIdObjetos()%>&idH=<%=obj.getHeroes_idHeroes()%>">
                             <i class="fa-solid fa-pen"></i>
                         </a>
                     </td>
                     <td class="text-center">
                         <a type="button" class="btn btn-danger", style="background-color: #7453fc; border-color: #7453fc"
                            onclick="return confirm('¿Estas seguro(a) que deseas borrar?')"
-                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrarObjeto&id=<%= obj.getIdObjetos()%>">
+                           href="<%=request.getContextPath()%>/HeroesServlet?accion=borrarObjeto&idd=<%=obj.getObjeto_idObjeto()%>&idH=<%=obj.getHeroes_idHeroes()%>">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>

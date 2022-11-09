@@ -105,74 +105,76 @@
           <div class="ibox-head">
             <div class="ibox-title">Datos del Héroe</div>
           </div>
-
-          <div class="row g-2">
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idheroe" aria-label="Disabled input example" disabled readonly>
-                <label for="floatingInputGrid1">IdHéroe: <%=heroes.getIdHeroes()%></label>
+          <div class="ibox-body">
+            <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=editarheroe&id=<%= heroes.getIdHeroes()%>">
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid1" placeholder="idheroe" aria-label="Disabled input example" disabled readonly>
+                    <label for="floatingInputGrid1">IdHéroe: <%=heroes.getIdHeroes()%></label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid2" placeholder="nombre" name="nombreheroe">
+                    <label for="floatingInputGrid2"> Nombre: <%=heroes.getNombre()%></label>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid2" placeholder="nombre" name="nombreheroe">
-                <label for="floatingInputGrid2"> Nombre: <%=heroes.getNombre()%></label>
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid3" placeholder="edad" name="edadheroe">
+                    <label for="floatingInputGrid3">Edad: <%=heroes.getEdad()%></label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid4" placeholder="genero" name="generoheroe">
+                    <label for="floatingInputGrid4">Género: <%=heroes.getGenero()%></label>
+                  </div>
+                </div>
               </div>
-            </div>
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid5" placeholder="clase" name="claseheroe">
+                    <label for="floatingInputGrid4">Clase: <%=heroes.getClase()%></label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid6" placeholder="nivelinicial" name="nivelheroe">
+                    <label for="floatingInputGrid6">Nivel Inicial: <%=heroes.getNivel()%></label>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid7" placeholder="ataque" name="ataqueheroe">
+                    <label for="floatingInputGrid4">Ataque: <%=heroes.getAtaque()%></label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid8" placeholder="pareja" name="parejaheroe">
+                      <% if(heroes.getPareja().getNombre()!=null) {%>
+                      <label for="floatingInputGrid6">Pareja: <%=heroes.getPareja().getNombre()%></label>
+                      <%} else {%>
+                    <label for="floatingInputGrid6">Pareja: No tiene</label>
+                      <%}%>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating" style="margin-bottom: 5px;">
+                    <input type="text" class="form-control" id="floatingInputGrid10" placeholder="experiencia" name="experienciaheroe">
+                    <label for="floatingInputGrid6">Experiencia Inicial: <%=heroes.getExperienciaInicial()%></label>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="row g-2">
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid3" placeholder="edad" name="edadheroe">
-                <label for="floatingInputGrid3">Edad: <%=heroes.getEdad()%></label>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid4" placeholder="genero" name="generoheroe">
-                <label for="floatingInputGrid4">Género: <%=heroes.getGenero()%></label>
-              </div>
-            </div>
-          </div>
-          <div class="row g-2">
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid5" placeholder="clase" name="claseheroe">
-                <label for="floatingInputGrid4">Clase: <%=heroes.getClase()%></label>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid6" placeholder="nivelinicial" name="nivelheroe">
-                <label for="floatingInputGrid6">Nivel Inicial: <%=heroes.getNivel()%></label>
-              </div>
-            </div>
-          </div>
-          <div class="row g-2">
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid7" placeholder="ataque" name="ataqueheroe">
-                <label for="floatingInputGrid4">Ataque: <%=heroes.getAtaque()%></label>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid8" placeholder="pareja" name="parejaheroe">
-                  <% if(heroes.getPareja().getNombre()!=null) {%>
-                  <label for="floatingInputGrid6">Pareja: <%=heroes.getPareja().getNombre()%></label>
-                  <%} else {%>
-                <label for="floatingInputGrid6">Pareja: No tiene</label>
-                  <%}%>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-floating" style="margin-bottom: 5px;">
-                <input type="text" class="form-control" id="floatingInputGrid10" placeholder="experiencia" name="experienciaheroe">
-                <label for="floatingInputGrid6">Experiencia Inicial: <%=heroes.getExperienciaInicial()%></label>
-              </div>
-            </div>
-          </div>
-
 
           <!--<div class="ibox-body">
             <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=editarheroe&id=<%= heroes.getIdHeroes()%>">

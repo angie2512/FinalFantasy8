@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.finalfantasy.Bean.Objetos" %>
+<%@ page import="java.lang.String" %>
+<%@ page import="com.example.finalfantasy.Bean.Heroes" %>
 
 <%
   Objetos objeto = (Objetos) request.getAttribute("editar");
+%>
+<%
+  Heroes hero1 = (Heroes) request.getAttribute("hero");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +111,12 @@
             <div class="ibox-title">Datos de Objeto</div>
           </div>
           <div class="ibox-body">
-            <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=editarobjeto&id=<%= objeto.getIdObjetos()%>">
+            <% if((hero1)!=null) {%>
+              <% int id = hero1.getIdHeroes();%>
+              <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=editarobjeto&id=<%= objeto.getIdObjetos()%>&idH=<%=id%>">
+            <% }else {%>
+              <form method="post" action="<%=request.getContextPath()%>/CatalogoServlet?accion=editarobjeto&id=<%= objeto.getIdObjetos()%>">
+            <% }%>
               <div class="row g-2">
                 <div class="col-md">
                   <div class="form-floating" style="margin-bottom: 5px;">
@@ -164,7 +174,12 @@
               <div style="color:#FF0000;"><p text-align="center;" style="margin-top: 10px;" class="font-weight-bold">Todos los campos son obligatorios.</p></div>
               <div class="form-group">
                 <button class="btn btn-primary" type="submit" >Confirmar Cambios</button>
+                <% if((hero1)!=null) {%>
+                  <% int id = hero1.getIdHeroes();%>
+                  <a href="<%=request.getContextPath()%>/HeroesServlet?accion=listarinventario&id=<%=id%>" class="btn btn-secondary">Cancelar</a>
+                <% }else {%>
                 <a href="<%=request.getContextPath()%>/CatalogoServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                <% }%>
               </div>
             </form>
           </div>

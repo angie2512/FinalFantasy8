@@ -64,6 +64,7 @@ public class CatalogoServlet extends HttpServlet {
         RequestDispatcher view;
         switch (accion){
             case ("editarobjeto"):
+                String iddd = request.getParameter("idH");
                 String id= request.getParameter("id");
                 int idd = Integer.parseInt(id);
                 String peso1 = request.getParameter("pesoobjeto");
@@ -75,7 +76,11 @@ public class CatalogoServlet extends HttpServlet {
                     float weight1 = Float.parseFloat(peso1);
                     objeto1.editarObjetoNo(efecto1,weight1,idd);
                 }
-                response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
+                if (iddd!=null){
+                    response.sendRedirect(request.getContextPath()+ "/HeroesServlet?accion=listarinventario&id="+iddd);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/CatalogoServlet");
+                }
                 break;
             case ("add"):
                 String nombre = request.getParameter("nombreobjeto");
