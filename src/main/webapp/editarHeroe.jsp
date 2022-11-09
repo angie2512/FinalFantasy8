@@ -106,7 +106,7 @@
             <div class="ibox-title">Datos del Héroe</div>
           </div>
           <div class="ibox-body">
-            <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=editarHeroe&heroeId=<%= heroes.getIdHeroes()%>">
+            <form method="post" action="<%=request.getContextPath()%>/HeroesServlet?accion=editarHeroe&id=<%= heroes.getIdHeroes()%>">
               <div class="row g-2">
                 <% if(session.getAttribute("infotodo")!= null) {%>
                 <div class="alert alert-danger" role="alert">
