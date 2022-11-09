@@ -49,18 +49,29 @@ public class HeroeDao extends BaseDao{
     }
 
 
-    public ArrayList<ObjetoHasHeroes> listarInventario() {
+    public ArrayList<ObjetoHasHeroes> listarInventario(int identificador) {
         ArrayList<ObjetoHasHeroes> listaInventario = new ArrayList<>();
-        String sql = "select * from objetos_has_heroes";
+        String sql = "select * from objetos_has_heroes where Heroes_idHeroes = "+identificador;
+        String sql1 = "select * from objetos";
 
         try (Connection connection = this.getConnection();
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
-                ObjetoHasHeroes objetoHasHeroes = new ObjetoHasHeroes();
-                objetoHasHeroes.setObjeto_idObjeto(rs.getInt("Objetos_idObjetos"));
-                objetoHasHeroes.setCantidad(rs.getInt("Cantidad"));
-                listaInventario.add(objetoHasHeroes);
+                ObjetoHasHeroes obje = new ObjetoHasHeroes();
+                try (Connection connection1 = this.getConnection();
+                     Statement stmt1 = connection1.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                     ResultSet rs1 = stmt1.executeQuery(sql1);) {
+                    rs1.absolute(rs.getInt("Objetos_idObjetos"));
+                    obje.setNombreObjeto(rs1.getString("NombreObjeto"));
+                    obje.setEfecto(rs1.getString("Efecto"));
+                    obje.setPeso(rs1.getFloat("Peso"));
+                    obje.setCantidad(rs.getInt("Cantidad"));
+                    obje.setIdObjetos(rs.getInt("Objetos_idObjetos"));
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                listaInventario.add(obje);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -1,6 +1,6 @@
 package com.example.finalfantasy.Bean;
 
-public class ObjetoHasHeroes {
+public class ObjetoHasHeroes extends Objetos {
     private int cantidad;
     private int objeto_idObjeto;
     private int heroes_idHeroes;

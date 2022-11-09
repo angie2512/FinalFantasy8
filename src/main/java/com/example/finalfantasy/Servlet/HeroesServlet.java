@@ -4,6 +4,7 @@ package com.example.finalfantasy.Servlet;
 import com.example.finalfantasy.Bean.Hechizos;
 import com.example.finalfantasy.Bean.Heroes;
 import com.example.finalfantasy.Bean.Objetos;
+import com.example.finalfantasy.Bean.ObjetoHasHeroes;
 import com.example.finalfantasy.Daos.HechizoDao;
 import com.example.finalfantasy.Daos.HeroeDao;
 import jakarta.servlet.*;
@@ -44,7 +45,10 @@ public class HeroesServlet extends HttpServlet {
                 break;
 
             case "listarinventario":
-                request.setAttribute("ListaInventario", heroeDao.listarInventario());
+                String id1= request.getParameter("id");
+                int idd = Integer.parseInt(id1);
+                ArrayList<ObjetoHasHeroes> listaInventario = heroeDao.listarInventario(idd);
+                request.setAttribute("listaInventario", listaInventario);
                 view = request.getRequestDispatcher("inventarioinicial.jsp");
                 view.forward(request, response);
                 break;

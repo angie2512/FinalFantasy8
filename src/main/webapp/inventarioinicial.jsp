@@ -10,7 +10,7 @@
 <%@ page import="com.example.finalfantasy.Bean.ObjetoHasHeroes" %>
 
 <%
-    ArrayList<ObjetoHasHeroes> listaobjetoshasheroes = (ArrayList<ObjetoHasHeroes>) request.getAttribute("listaObjetoshasheroes");
+    ArrayList<ObjetoHasHeroes> listaInventario = (ArrayList<ObjetoHasHeroes>) request.getAttribute("listaInventario");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,14 +102,20 @@
             <table class="table table-dark table-hover">
                 <thead>
                 <tr>
+                    <th scope="col" class="text-center">ID Objeto</th>
                     <th scope="col" class="text-center">Nombre del Objeto</th>
+                    <th scope="col" class="text-center">Efecto/Uso</th>
+                    <th scope="col" class="text-center">Peso</th>
                     <th scope="col" class="text-center">Cantidad</th>
                 </tr>
                 </thead>
                 <tbody>
-                <% for(ObjetoHasHeroes obj : listaobjetoshasheroes) {%>
+                <% for(ObjetoHasHeroes obj : listaInventario) {%>
                 <tr>
-                    <th class="text-center" scope="row"><%= obj.getHeroes_idHeroes()%></th>
+                    <th class="text-center" scope="row"><%= obj.getIdObjetos()%></th>
+                    <td class="text-center"><%= obj.getNombreObjeto()%></td>
+                    <td class="text-center"><%= obj.getEfecto()%></td>
+                    <td class="text-center"><%= obj.getPeso()%></td>
                     <td class="text-center"><%= obj.getCantidad()%></td>
                 </tr>
                 <% }%>
